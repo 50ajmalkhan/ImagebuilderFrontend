@@ -7,6 +7,8 @@ import ImageGenerator from './components/Generation/ImageGenerator';
 import ImageGallery from './components/Generation/ImageGallery';
 import VideoGenerator from './components/Generation/VideoGenerator';
 import VideoGallery from './components/Generation/VideoGallery';
+import ImageGalleryPreview from './components/Generation/ImageGalleryPreview';
+import VideoGalleryPreview from './components/Generation/VideoGalleryPreview';
 import DashboardLayout from './components/Layout/DashboardLayout';
 
 const PrivateRoute = ({ children }) => {
@@ -37,7 +39,7 @@ const DashboardContent = () => {
           </div>
         </div>
         <div className="px-4 py-5 sm:p-6" style={{ maxHeight: '500px', overflowY: 'auto' }}>
-          <ImageGallery limit={8} />
+          <ImageGalleryPreview limit={8} />
         </div>
       </div>
 
@@ -55,7 +57,7 @@ const DashboardContent = () => {
           </div>
         </div>
         <div className="px-4 py-5 sm:p-6" style={{ maxHeight: '500px', overflowY: 'auto' }}>
-          <VideoGallery limit={4} />
+          <VideoGalleryPreview limit={4} />
         </div>
       </div>
 
