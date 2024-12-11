@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { images } from '../../lib/api';
+import DownloadIcon from '../common/DownloadIcon';
 
 const ImageGallery = ({ limit = 12 }) => {
   const [imageList, setImageList] = useState([]);
@@ -7,6 +8,23 @@ const ImageGallery = ({ limit = 12 }) => {
   const [error, setError] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
+  const handleDownload = async (image) => {
+    try {
+      const response = await fetch(image.url);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `image-${Date.now()}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Failed to download image:', err);
+    }
+  };
 
   const fetchImages = async () => {
     setLoading(true);
@@ -73,7 +91,7 @@ const ImageGallery = ({ limit = 12 }) => {
             key={image.id}
             className="relative group bg-white rounded-lg shadow-sm overflow-hidden"
           >
-            <div className="aspect-w-16 aspect-h-9">
+            <div className="relative aspect-w-16 aspect-h-9">
               <img
                 src={image.url}
                 alt={image.prompt}
@@ -82,6 +100,12 @@ const ImageGallery = ({ limit = 12 }) => {
                   e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Available';
                 }}
               />
+              <div className="absolute top-2 right-2 z-10">
+                <DownloadIcon 
+                  onClick={() => handleDownload(image)}
+                  className="opacity-90 hover:opacity-100"
+                />
+              </div>
             </div>
             <div className="p-4">
               <p className="text-sm text-gray-600 truncate" title={image.prompt}>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { videos } from '../../lib/api';
+import DownloadIcon from '../common/DownloadIcon';
 
 const VideoGallery = ({ limit = 12 }) => {
   const [videoList, setVideoList] = useState([]);
@@ -7,6 +8,23 @@ const VideoGallery = ({ limit = 12 }) => {
   const [error, setError] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
+  const handleDownload = async (video) => {
+    try {
+      const response = await fetch(video.url);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `video-${Date.now()}.mp4`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Failed to download video:', err);
+    }
+  };
 
   const fetchVideos = async () => {
     setLoading(true);
@@ -73,7 +91,7 @@ const VideoGallery = ({ limit = 12 }) => {
             key={video.id}
             className="relative group bg-white rounded-lg shadow-sm overflow-hidden"
           >
-            <div className="aspect-w-16 aspect-h-9">
+            <div className="relative aspect-w-16 aspect-h-9">
               <video
                 controls
                 className="w-full h-full object-cover"
@@ -82,6 +100,12 @@ const VideoGallery = ({ limit = 12 }) => {
               >
                 Your browser does not support the video tag.
               </video>
+              <div className="absolute top-2 right-2 z-10">
+                <DownloadIcon 
+                  onClick={() => handleDownload(video)}
+                  className="opacity-90 hover:opacity-100"
+                />
+              </div>
             </div>
             <div className="p-4">
               <p className="text-sm text-gray-600 truncate" title={video.prompt}>
