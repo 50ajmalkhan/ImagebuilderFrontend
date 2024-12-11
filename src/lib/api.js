@@ -41,7 +41,7 @@ export const auth = {
     return response.data;
   },
   signup: async ({ email, password, name }) => {
-    const response = await api.post('/auth/signup', { email, password, name });
+    const response = await api.post('/auth/signup', { email, password, full_name: name });
     const { access_token } = response.data;
     localStorage.setItem('token', access_token);
     return response.data;
@@ -68,7 +68,7 @@ export const videos = {
     const formData = new FormData();
     formData.append('prompt', data.prompt);
     if (data.image) {
-      formData.append('image', data.image);
+      formData.append('reference_image', data.image);
     }
     
     const response = await api.post('/generation/generate-video', formData, {
