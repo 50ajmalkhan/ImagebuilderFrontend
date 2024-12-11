@@ -58,7 +58,7 @@ export const images = {
     return response.data;
   },
   list: async (page = 1, limit = 10) => {
-    const response = await api.get('/generation/history', { params: { page, limit } });
+    const response = await api.get('/generation/history', { params: { type: "image" } });
     return response.data;
   }
 };
@@ -79,7 +79,7 @@ export const videos = {
     return response.data;
   },
   list: async (page = 1, limit = 10) => {
-    const response = await api.get('/generation/video-history', { params: { page, limit } });
+    const response = await api.get('/generation/history', { params: { type: "video" } });
     return response.data;
   }
 };

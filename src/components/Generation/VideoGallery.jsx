@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { videos } from '../../lib/api';
 import DownloadIcon from '../common/DownloadIcon';
 
-const VideoGallery = ({ limit = 12 }) => {
+const VideoGallery = () => {
   const [videoList, setVideoList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
 
   const handleDownload = async (video) => {
     try {
@@ -26,24 +24,35 @@ const VideoGallery = ({ limit = 12 }) => {
     }
   };
 
-  const fetchVideos = async () => {
-    setLoading(true);
-    setError('');
-
-    try {
-      const result = await videos.list(page, limit);
-      setVideoList(result);
-      setTotalPages(Math.ceil(result.length / limit));
-    } catch (err) {
-      setError(err.response?.data?.detail || 'Failed to fetch videos');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    let mounted = true;
+
+    const fetchVideos = async () => {
+      setLoading(true);
+      setError('');
+
+      try {
+        const result = await videos.list();
+        if (mounted) {
+          setVideoList(result);
+        }
+      } catch (err) {
+        if (mounted) {
+          setError(err.response?.data?.detail || 'Failed to fetch videos');
+        }
+      } finally {
+        if (mounted) {
+          setLoading(false);
+        }
+      }
+    };
+
     fetchVideos();
-  }, [page, limit]);
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   if (loading) {
     return (
@@ -84,73 +93,47 @@ const VideoGallery = ({ limit = 12 }) => {
   }
 
   return (
-    <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {videoList.map((video) => (
-          <div
-            key={video.id}
-            className="relative group bg-white rounded-lg shadow-sm overflow-hidden"
-          >
-            <div className="relative aspect-w-16 aspect-h-9">
-              <video
-                controls
-                className="w-full h-full object-cover"
-                src={video.url}
-                poster={video.reference_image_url}
-              >
-                Your browser does not support the video tag.
-              </video>
-              <div className="absolute top-2 right-2 z-10">
-                <DownloadIcon 
-                  onClick={() => handleDownload(video)}
-                  className="opacity-90 hover:opacity-100"
-                />
-              </div>
-            </div>
-            <div className="p-4">
-              <p className="text-sm text-gray-600 truncate" title={video.prompt}>
-                {video.prompt}
-              </p>
-              <div className="mt-2 flex justify-between items-center">
-                <span className="text-xs text-gray-500">
-                  {new Date(video.created_at).toLocaleDateString()}
-                </span>
-                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                  video.status === 'success'
-                    ? 'bg-green-100 text-green-800'
-                    : 'bg-yellow-100 text-yellow-800'
-                }`}>
-                  {video.status}
-                </span>
-              </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {videoList.map((video) => (
+        <div
+          key={video.id}
+          className="relative group bg-white rounded-lg shadow-sm overflow-hidden"
+        >
+          <div className="relative aspect-w-16 aspect-h-9">
+            <video
+              controls
+              className="w-full h-full object-cover"
+              src={video.url}
+              poster={video.reference_image_url}
+            >
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute top-2 right-2 z-10">
+              <DownloadIcon 
+                onClick={() => handleDownload(video)}
+                className="opacity-90 hover:opacity-100"
+              />
             </div>
           </div>
-        ))}
-      </div>
-
-      {totalPages > 1 && (
-        <div className="mt-8 flex justify-center">
-          <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
-            <button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={page === 1}
-              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100"
-            >
-              Previous
-            </button>
-            <span className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
-              Page {page} of {totalPages}
-            </span>
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              disabled={page === totalPages}
-              className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-gray-100"
-            >
-              Next
-            </button>
-          </nav>
+          <div className="p-4">
+            <p className="text-sm text-gray-600 truncate" title={video.prompt}>
+              {video.prompt}
+            </p>
+            <div className="mt-2 flex justify-between items-center">
+              <span className="text-xs text-gray-500">
+                {new Date(video.created_at).toLocaleDateString()}
+              </span>
+              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                video.status === 'success'
+                  ? 'bg-green-100 text-green-800'
+                  : 'bg-yellow-100 text-yellow-800'
+              }`}>
+                {video.status}
+              </span>
+            </div>
+          </div>
         </div>
-      )}
+      ))}
     </div>
   );
 };
