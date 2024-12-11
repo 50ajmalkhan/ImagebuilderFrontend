@@ -1,94 +1,87 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { store } from './store/store';
-import Header from './components/Layout/Header';
-import DashboardLayout from './components/Layout/DashboardLayout';
-import ProtectedRoute from './components/Auth/ProtectedRoute';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import LoginPage from './pages/LoginPage';
+import LoginForm from './components/Auth/LoginForm';
 import SignupPage from './pages/SignupPage';
-import GeneratePage from './pages/GeneratePage';
-import DashboardPage from './pages/DashboardPage';
+import ImageGenerator from './components/Generation/ImageGenerator';
+import ImageGallery from './components/Generation/ImageGallery';
+import DashboardLayout from './components/Layout/DashboardLayout';
 
-const theme = createTheme({
-  typography: {
-    fontFamily: 'Inter, sans-serif',
-    h1: { fontWeight: 700 },
-    h2: { fontWeight: 700 },
-    h3: { fontWeight: 600 },
-    h4: { fontWeight: 600 },
-    button: { fontWeight: 500 },
-  },
-  palette: {
-    primary: {
-      main: '#2563eb',
-    },
-    secondary: {
-      main: '#4f46e5',
-    },
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-          borderRadius: '8px',
-        },
-      },
-    },
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          '& .MuiOutlinedInput-root': {
-            borderRadius: '8px',
-          },
-        },
-      },
-    },
-  },
-});
+const PrivateRoute = ({ children }) => {
+  const isAuthenticated = !!localStorage.getItem('token');
+  return isAuthenticated ? children : <Navigate to="/login" />;
+};
 
-function App() {
+const App = () => {
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Router>
-          <Routes>
-            {/* Public routes */}
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
+    <Router>
+      <Routes>
+        {/* Public routes */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupPage />} />
 
-            {/* Protected routes with DashboardLayout */}
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <DashboardLayout>
-                    <DashboardPage />
-                  </DashboardLayout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/generate"
-              element={
-                <ProtectedRoute>
-                  <DashboardLayout>
-                    <GeneratePage />
-                  </DashboardLayout>
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-        </Router>
-      </ThemeProvider>
-    </Provider>
+        {/* Protected routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <DashboardLayout>
+                <div className="space-y-6">
+                  <div className="md:flex md:items-center md:justify-between">
+                    <div className="flex-1 min-w-0">
+                      <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+                        Dashboard
+                      </h2>
+                    </div>
+                  </div>
+                  <ImageGallery />
+                </div>
+              </DashboardLayout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/generate"
+          element={
+            <PrivateRoute>
+              <DashboardLayout>
+                <div className="space-y-6">
+                  <div className="md:flex md:items-center md:justify-between">
+                    <div className="flex-1 min-w-0">
+                      <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+                        Generate New Image
+                      </h2>
+                    </div>
+                  </div>
+                  <ImageGenerator />
+                </div>
+              </DashboardLayout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/gallery"
+          element={
+            <PrivateRoute>
+              <DashboardLayout>
+                <div className="space-y-6">
+                  <div className="md:flex md:items-center md:justify-between">
+                    <div className="flex-1 min-w-0">
+                      <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+                        Image Gallery
+                      </h2>
+                    </div>
+                  </div>
+                  <ImageGallery />
+                </div>
+              </DashboardLayout>
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
