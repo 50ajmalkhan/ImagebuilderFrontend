@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { images } from '../../lib/api';
+import { videos } from '../../lib/api';
 
-const ImageGallery = ({ limit = 12 }) => {
-  const [imageList, setImageList] = useState([]);
+const VideoGallery = ({ limit = 12 }) => {
+  const [videoList, setVideoList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const fetchImages = async () => {
+  const fetchVideos = async () => {
     setLoading(true);
     setError('');
 
     try {
-      const result = await images.list(page, limit);
-      setImageList(result);
+      const result = await videos.list(page, limit);
+      setVideoList(result);
       setTotalPages(Math.ceil(result.length / limit));
     } catch (err) {
-      setError(err.response?.data?.detail || 'Failed to fetch images');
+      setError(err.response?.data?.detail || 'Failed to fetch videos');
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchImages();
+    fetchVideos();
   }, [page, limit]);
 
   if (loading) {
@@ -43,7 +43,7 @@ const ImageGallery = ({ limit = 12 }) => {
     );
   }
 
-  if (imageList.length === 0) {
+  if (videoList.length === 0) {
     return (
       <div className="text-center py-12">
         <svg
@@ -56,11 +56,11 @@ const ImageGallery = ({ limit = 12 }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
           />
         </svg>
-        <h3 className="mt-2 text-sm font-medium text-gray-900">No images</h3>
-        <p className="mt-1 text-sm text-gray-500">Get started by generating your first image.</p>
+        <h3 className="mt-2 text-sm font-medium text-gray-900">No videos</h3>
+        <p className="mt-1 text-sm text-gray-500">Get started by generating your first video.</p>
       </div>
     );
   }
@@ -68,35 +68,35 @@ const ImageGallery = ({ limit = 12 }) => {
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {imageList.map((image) => (
+        {videoList.map((video) => (
           <div
-            key={image.id}
+            key={video.id}
             className="relative group bg-white rounded-lg shadow-sm overflow-hidden"
           >
             <div className="aspect-w-16 aspect-h-9">
-              <img
-                src={image.url}
-                alt={image.prompt}
+              <video
+                controls
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Available';
-                }}
-              />
+                src={video.url}
+                poster={video.reference_image_url}
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
             <div className="p-4">
-              <p className="text-sm text-gray-600 truncate" title={image.prompt}>
-                {image.prompt}
+              <p className="text-sm text-gray-600 truncate" title={video.prompt}>
+                {video.prompt}
               </p>
               <div className="mt-2 flex justify-between items-center">
                 <span className="text-xs text-gray-500">
-                  {new Date(image.created_at).toLocaleDateString()}
+                  {new Date(video.created_at).toLocaleDateString()}
                 </span>
                 <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                  image.status === 'success'
+                  video.status === 'success'
                     ? 'bg-green-100 text-green-800'
                     : 'bg-yellow-100 text-yellow-800'
                 }`}>
-                  {image.status}
+                  {video.status}
                 </span>
               </div>
             </div>
@@ -131,4 +131,4 @@ const ImageGallery = ({ limit = 12 }) => {
   );
 };
 
-export default ImageGallery; 
+export default VideoGallery; 

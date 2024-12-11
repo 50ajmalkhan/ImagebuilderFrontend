@@ -63,4 +63,25 @@ export const images = {
   }
 };
 
+export const videos = {
+  generate: async (data) => {
+    const formData = new FormData();
+    formData.append('prompt', data.prompt);
+    if (data.image) {
+      formData.append('image', data.image);
+    }
+    
+    const response = await api.post('/generation/generate-video', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  },
+  list: async (page = 1, limit = 10) => {
+    const response = await api.get('/generation/video-history', { params: { page, limit } });
+    return response.data;
+  }
+};
+
 export default api; 
