@@ -2,27 +2,31 @@ import React, { useState } from 'react';
 import { videos } from '../../lib/api';
 import { useTranslation } from 'react-i18next';
 import DownloadIcon from '../common/DownloadIcon';
-import api from '../../lib/api';
+import { tokens } from '../../lib/api';
 
 const VideoGenerator = () => {
   const { t } = useTranslation();
   const [prompt, setPrompt] = useState('');
-  const [image, setImage] = useState(null);
-  const [imagePreview, setImagePreview] = useState('');
+  const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [generatedVideo, setGeneratedVideo] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setImage(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
+      // Check if file is an image
+      if (!file.type.startsWith('image/')) {
+        setError(t('videoGeneration.errors.invalidImageType'));
+        return;
+      }
+      // Check file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        setError(t('videoGeneration.errors.imageTooLarge'));
+        return;
+      }
+      setSelectedImage(file);
+      setError(''); // Clear any previous errors
     }
   };
 
@@ -33,23 +37,38 @@ const VideoGenerator = () => {
     setGeneratedVideo(null);
 
     try {
-      const result = await videos.generate({ prompt, image });
+      const result = await videos.generate({ 
+        prompt, 
+        image: selectedImage 
+      });
       setGeneratedVideo(result);
       
       // Update token balance
-      const balanceResponse = await api.get('/tokens/balance');
-      const user = JSON.parse(localStorage.getItem('user') || '{}');
-      user.tokens = balanceResponse.data.tokens;
-      localStorage.setItem('user', JSON.stringify(user));
+      await tokens.getBalance();
     } catch (err) {
-      setError(err.response?.data?.detail || 'Failed to generate video');
+      setError(err.response?.data?.detail || t('videoGeneration.errors.generationFailed'));
     } finally {
       setLoading(false);
     }
   };
 
-  const handleDownload = () => {
-    // Implementation of handleDownload function
+  const handleDownload = async () => {
+    if (!generatedVideo?.url) return;
+    
+    try {
+      const response = await fetch(generatedVideo.url);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `generated-video-${Date.now()}.mp4`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      setError(t('videoGeneration.errors.downloadFailed'));
+    }
   };
 
   return (
@@ -141,7 +160,7 @@ const VideoGenerator = () => {
         <div>
           <button
             type="submit"
-            disabled={loading || !selectedImage}
+            disabled={loading || !selectedImage || !prompt.trim()}
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400 disabled:cursor-not-allowed"
           >
             {loading ? (

@@ -3,6 +3,7 @@ import { images } from '../../lib/api';
 import DownloadIcon from '../common/DownloadIcon';
 import { useTranslation } from 'react-i18next';
 import api from '../../lib/api';
+import {tokens} from '../../lib/api';
 
 const ImageGenerator = () => {
   const { t } = useTranslation();
@@ -22,10 +23,7 @@ const ImageGenerator = () => {
       setGeneratedImage(result);
       
       // Update token balance
-      const balanceResponse = await api.get('/tokens/balance');
-      const user = JSON.parse(localStorage.getItem('user') || '{}');
-      user.tokens = balanceResponse.data.tokens;
-      localStorage.setItem('user', JSON.stringify(user));
+      await tokens.getBalance();
     } catch (err) {
       setError(err.response?.data?.detail || 'Failed to generate image');
     } finally {

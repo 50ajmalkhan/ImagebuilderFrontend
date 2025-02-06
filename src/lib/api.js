@@ -127,6 +127,18 @@ export const tokens = {
     } catch (error) {
       console.error('Failed to update token balance:', error);
     }
+  },
+  getBalance: async () => {
+    try {
+      const response = await api.get('/tokens/balance');
+      const newBalance = response.data.tokens;
+      // Update local storage and dispatch event
+      tokens.updateBalance(newBalance);
+      return newBalance;
+    } catch (error) {
+      console.error('Failed to fetch token balance:', error);
+      throw error;
+    }
   }
 };
 
