@@ -57,15 +57,15 @@ const ImageGallery = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-400"></div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="rounded-md bg-red-50 p-4">
-        <div className="text-sm text-red-700">{error}</div>
+      <div className="rounded-md bg-red-900/50 p-4 border border-red-600">
+        <div className="text-sm text-red-200">{error}</div>
       </div>
     );
   }
@@ -86,8 +86,8 @@ const ImageGallery = () => {
             d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
           />
         </svg>
-        <h3 className="mt-2 text-sm font-medium text-gray-900">No images</h3>
-        <p className="mt-1 text-sm text-gray-500">Get started by generating your first image.</p>
+        <h3 className="mt-2 text-sm font-medium text-gray-200">No images</h3>
+        <p className="mt-1 text-sm text-gray-400">Get started by generating your first image.</p>
       </div>
     );
   }
@@ -97,7 +97,7 @@ const ImageGallery = () => {
       {imageList.map((image) => (
         <div
           key={image.id}
-          className="relative group bg-white rounded-lg shadow-sm overflow-hidden"
+          className="relative group bg-[#252b3d] rounded-lg shadow-lg border border-gray-700 overflow-hidden"
         >
           <div className="relative aspect-w-16 aspect-h-9">
             <img
@@ -111,22 +111,22 @@ const ImageGallery = () => {
             <div className="absolute top-2 right-2 z-10">
               <DownloadIcon 
                 onClick={() => handleDownload(image)}
-                className="opacity-90 hover:opacity-100"
+                className="text-white opacity-90 hover:opacity-100"
               />
             </div>
           </div>
           <div className="p-4">
-            <p className="text-sm text-gray-600 truncate" title={image.prompt}>
+            <p className="text-sm text-gray-300 truncate" title={image.prompt}>
               {image.prompt}
             </p>
             <div className="mt-2 flex justify-between items-center">
-              <span className="text-xs text-gray-500">
-                {new Date(image.created_at).toLocaleDateString()}
+              <span className="text-xs text-gray-400">
+                {new Date(image.generated_at || image.created_at).toLocaleDateString()}
               </span>
               <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                 image.status === 'success'
-                  ? 'bg-green-100 text-green-800'
-                  : 'bg-yellow-100 text-yellow-800'
+                  ? 'bg-green-900/50 text-green-200'
+                  : 'bg-yellow-900/50 text-yellow-200'
               }`}>
                 {image.status}
               </span>

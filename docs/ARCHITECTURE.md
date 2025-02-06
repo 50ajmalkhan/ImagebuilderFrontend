@@ -1,7 +1,6 @@
-# System Architecture
+# Architecture Overview
 
-## Overview
-The ImageBuilder Backend is a FastAPI-based service that provides image generation capabilities using AI models. It uses Supabase for authentication and storage, and PostgreSQL for data persistence.
+The VidGen Backend is a FastAPI-based service that provides image and video generation capabilities using AI models. It uses Supabase for authentication and storage, and PostgreSQL for data persistence.
 
 ## System Components
 
@@ -43,7 +42,7 @@ The ImageBuilder Backend is a FastAPI-based service that provides image generati
 
 ## Directory Structure
 ```
-ImagebuilderBackend/
+VidGen/
 ├── app/
 │   ├── api/            # API routes
 │   ├── core/           # Core functionality

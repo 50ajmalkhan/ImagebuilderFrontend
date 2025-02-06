@@ -1,25 +1,28 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Paper } from '@mui/material';
-
-const showcaseItems = [
-  {
-    title: 'AI-Generated Landscapes',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=600',
-    description: 'Transform simple text into breathtaking landscape imagery',
-  },
-  {
-    title: 'Product Visualization',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600',
-    description: 'Create professional product renders from descriptions',
-  },
-  {
-    title: 'Video Stories',
-    image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=600',
-    description: 'Generate engaging video content for your brand',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const ShowcaseSection = () => {
+  const { t } = useTranslation();
+
+  const showcaseItems = [
+    {
+      title: t('landing.showcase.items.landscapes.title'),
+      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=600',
+      description: t('landing.showcase.items.landscapes.description')
+    },
+    {
+      title: t('landing.showcase.items.products.title'),
+      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600',
+      description: t('landing.showcase.items.products.description')
+    },
+    {
+      title: t('landing.showcase.items.videos.title'),
+      image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=600',
+      description: t('landing.showcase.items.videos.description')
+    }
+  ];
+
   return (
     <Box className="py-20 bg-white">
       <Container maxWidth="lg">
@@ -29,7 +32,7 @@ const ShowcaseSection = () => {
           className="text-center mb-12"
           sx={{ fontWeight: 700 }}
         >
-          Showcase
+          {t('landing.showcase.title')}
         </Typography>
         <Grid container spacing={4}>
           {showcaseItems.map((item, index) => (

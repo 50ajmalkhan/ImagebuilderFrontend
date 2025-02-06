@@ -28,34 +28,50 @@ const ImageGallery = ({ images }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-      {images.map((image, index) => (
-        <div key={index} className="relative group bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="relative aspect-square">
-            <img
-              src={image.url}
-              alt={image.prompt || 'Generated image'}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute top-2 right-2 z-10">
-              <DownloadIcon 
-                onClick={() => handleDownload(image)}
-                className="opacity-90 hover:opacity-100"
-              />
-            </div>
+    <div className="space-y-6">
+      <div className="bg-[#252b3d] rounded-lg shadow-lg border border-gray-700 overflow-hidden">
+        <div className="px-4 py-5 sm:p-6">
+          <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+            {images.map((image, index) => (
+              <div key={index} className="group relative">
+                <div className="w-full min-h-80 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                  <img
+                    src={image.url}
+                    alt={image.prompt}
+                    className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  />
+                </div>
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-sm text-gray-300">
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {truncateText(image.prompt, 50)}
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-400">
+                      {new Date(image.generated_at || image.created_at).toLocaleString()}
+                    </p>
+                  </div>
+                  <div>
+                    <DownloadIcon onClick={() => handleDownload(image)} />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          {image.prompt && (
-            <div className="p-3 border-t">
-              <p className="text-sm text-gray-600 truncate">{image.prompt}</p>
-              {image.created_at && (
-                <p className="text-xs text-gray-400 mt-1">
-                  {new Date(image.created_at).toLocaleString()}
-                </p>
-              )}
-            </div>
-          )}
         </div>
-      ))}
+      </div>
+
+      {loading && (
+        <div className="flex justify-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-500"></div>
+        </div>
+      )}
+
+      {error && (
+        <div className="rounded-md bg-red-900/50 p-4 border border-red-600">
+          <div className="text-sm text-red-200">{error}</div>
+        </div>
+      )}
     </div>
   );
 };

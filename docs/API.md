@@ -1,4 +1,4 @@
-# ImageBuilder Backend API Documentation
+# VidGen Backend API Documentation
 
 ## Base URL
 ```

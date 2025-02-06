@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../common/LanguageSelector';
 
-const Header = () => {
+const AuthHeader = () => {
   const { t } = useTranslation();
-  const location = useLocation();
-  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
 
   return (
     <header className="bg-gray-800 border-b border-gray-700 shadow-sm">
@@ -37,22 +35,6 @@ const Header = () => {
 
           <div className="flex items-center space-x-4">
             <LanguageSelector />
-            {!isAuthPage && (
-              <div className="flex items-center space-x-4">
-                <Link
-                  to="/login"
-                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                >
-                  {t('auth.login')}
-                </Link>
-                <Link
-                  to="/signup"
-                  className="bg-indigo-500 text-white hover:bg-indigo-600 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                >
-                  {t('auth.signup')}
-                </Link>
-              </div>
-            )}
           </div>
         </div>
       </nav>
@@ -60,4 +42,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AuthHeader; 

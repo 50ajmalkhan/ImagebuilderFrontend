@@ -1,15 +1,18 @@
 import React from 'react';
 import { Paper, Typography, Box, Switch, FormControlLabel, Button } from '@mui/material';
 import { Bell, Shield, Download } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const UserSettings = () => {
+  const { t } = useTranslation();
+
   return (
     <Paper elevation={0} className="border border-gray-100 rounded-xl p-6">
       <Typography variant="h6" className="mb-4">Settings</Typography>
       <Box className="space-y-4">
         <FormControlLabel
           control={<Switch defaultChecked />}
-          label="Email Notifications"
+          label={t('settings.notifications')}
           className="w-full"
         />
         <FormControlLabel

@@ -10,7 +10,7 @@
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd ImagebuilderBackend
+cd VidGen
 ```
 
 2. Create and configure `.env` file:

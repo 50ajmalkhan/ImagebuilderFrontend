@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import LanguageSelector from '../common/LanguageSelector';
+import LanguageSelector from './LanguageSelector';
 
-const Header = () => {
+const GenericHeader = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
 
   return (
-    <header className="bg-gray-800 border-b border-gray-700 shadow-sm">
+    <header className="bg-[#1a1f2e] border-b border-gray-700 shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
+          {/* Left side - Logo and App Name */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <div className="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition-colors duration-200">
@@ -35,6 +36,7 @@ const Header = () => {
             </Link>
           </div>
 
+          {/* Right side - Language Selector and Auth Buttons */}
           <div className="flex items-center space-x-4">
             <LanguageSelector />
             {!isAuthPage && (
@@ -60,4 +62,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default GenericHeader; 
