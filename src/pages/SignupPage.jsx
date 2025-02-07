@@ -72,7 +72,7 @@ const SignupPage = () => {
       } else if (err.response?.status === 400) {
         setError(err.response.data.detail || t('errors.auth.invalidInput'));
       } else {
-        setError(err.response?.data?.detail || t('errors.auth.signupFailed'));
+        setError(t('errors.auth.signupFailed'));
       }
     } finally {
       setLoading(false);
@@ -151,18 +151,19 @@ const SignupPage = () => {
         <div className="max-w-md w-full space-y-8">
           <div className="text-center">
             <h2 className="text-4xl font-extrabold text-white mb-2">
-              {t('auth.createAccount')}
+              {t('auth.createYourAccount')}
             </h2>
             <h3 className="text-xl font-semibold text-indigo-400 mb-4">
               {t('auth.getStarted')}
             </h3>
             <p className="text-gray-300">
-              {t('auth.haveAccount')} {' '}
+              {t('auth.alreadyHaveAccount')}{' '}
               <Link to="/login" className="text-indigo-400 hover:text-indigo-300 font-medium">
                 {t('auth.login')}
               </Link>
             </p>
           </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,6 +182,7 @@ const SignupPage = () => {
                   </div>
                 </motion.div>
               )}
+
               <div className="space-y-4">
                 <TextField
                   label={t('auth.name')}
@@ -192,6 +194,7 @@ const SignupPage = () => {
                   value={formData.name}
                   onChange={handleChange}
                 />
+
                 <TextField
                   label={t('auth.email')}
                   id="email"
@@ -202,6 +205,7 @@ const SignupPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                 />
+
                 <TextField
                   label={t('auth.password')}
                   id="password"
@@ -212,6 +216,7 @@ const SignupPage = () => {
                   value={formData.password}
                   onChange={handleChange}
                 />
+
                 <TextField
                   label={t('auth.confirmPassword')}
                   id="confirmPassword"
@@ -224,7 +229,7 @@ const SignupPage = () => {
                 />
               </div>
 
-              <div className="mt-6">
+              <div>
                 <button
                   type="submit"
                   disabled={loading}
@@ -236,7 +241,7 @@ const SignupPage = () => {
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
                   ) : (
-                    t('auth.signUp')
+                    t('auth.createAccount')
                   )}
                 </button>
               </div>

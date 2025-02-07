@@ -17,67 +17,24 @@ import TokenHistory from './pages/TokenHistory';
 import PaymentSuccessPage from './pages/PaymentSuccessPage';
 import { useTranslation } from 'react-i18next';
 
+// Protected Route Component
 const PrivateRoute = ({ children }) => {
   const isAuthenticated = !!localStorage.getItem('token');
   return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
+// Dashboard Home Content
 const DashboardContent = () => {
   const { t } = useTranslation();
+  
   return (
-    <div className="space-y-8">
-      <div>
-        <h2 className="text-2xl font-bold leading-7 text-white sm:text-3xl sm:truncate mb-6">
-          {t('dashboard.title')}
-        </h2>
-      </div>
-
-      {/* Recent Images Section */}
-      <div className="bg-[#252b3d] rounded-lg shadow-lg border border-gray-700">
-        <div className="px-4 py-5 sm:px-6 border-b border-gray-700">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg leading-6 font-medium text-white">
-              {t('dashboard.recentImages')}
-            </h3>
-            <Link
-              to="/gallery/images"
-              className="text-sm font-medium text-indigo-400 hover:text-indigo-300"
-            >
-              {t('dashboard.viewAll')}
-            </Link>
-          </div>
-        </div>
-        <div className="px-4 py-5 sm:p-6" style={{ maxHeight: '500px', overflowY: 'auto' }}>
-          <ImageGalleryPreview limit={8} />
-        </div>
-      </div>
-
-      {/* Recent Videos Section */}
-      <div className="bg-[#252b3d] rounded-lg shadow-lg border border-gray-700">
-        <div className="px-4 py-5 sm:px-6 border-b border-gray-700">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg leading-6 font-medium text-white">
-              {t('dashboard.recentVideos')}
-            </h3>
-            <Link
-              to="/gallery/videos"
-              className="text-sm font-medium text-indigo-400 hover:text-indigo-300"
-            >
-              {t('dashboard.viewAll')}
-            </Link>
-          </div>
-        </div>
-        <div className="px-4 py-5 sm:p-6" style={{ maxHeight: '500px', overflowY: 'auto' }}>
-          <VideoGalleryPreview limit={4} />
-        </div>
-      </div>
-
-      {/* Quick Actions */}
-      <div className="bg-[#252b3d] rounded-lg shadow-lg border border-gray-700">
-        <div className="px-4 py-5 sm:p-6">
-          <h3 className="text-lg leading-6 font-medium text-white mb-4">
-            {t('dashboard.quickActions.title')}
-          </h3>
+    <div className="py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold text-white mb-8">{t('dashboard.title')}</h1>
+        
+        {/* Quick Actions */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-white mb-4">{t('dashboard.quickActions.title')}</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Link
               to="/generate/image"
@@ -120,27 +77,38 @@ const DashboardContent = () => {
             </Link>
           </div>
         </div>
+
+        {/* Recent Content */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <div>
+            <h2 className="text-xl font-semibold text-white mb-4">{t('dashboard.recentImages')}</h2>
+            <ImageGallery limit={4} />
+          </div>
+          <div>
+            <h2 className="text-xl font-semibold text-white mb-4">{t('dashboard.recentVideos')}</h2>
+            <VideoGallery limit={4} />
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
+// Main App Content with Routes
 const AppContent = () => {
   const location = useLocation();
-  const isDashboard = location.pathname.startsWith('/dashboard');
-  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
 
   return (
     <div className="min-h-screen bg-[#1a1f2e]">
       <main>
         <Routes>
-          {/* Public routes */}
+          {/* Public Routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/verify-email" element={<EmailVerificationPage />} />
 
-          {/* Protected routes */}
+          {/* Protected Dashboard Routes */}
           <Route
             path="/dashboard"
             element={
@@ -151,13 +119,17 @@ const AppContent = () => {
               </PrivateRoute>
             }
           />
+
+          {/* Protected Generation Routes */}
           <Route
             path="/generate/image"
             element={
               <PrivateRoute>
                 <DashboardLayout>
-                  <div className="space-y-6">
-                    <ImageGenerator />
+                  <div className="py-6">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                      <ImageGenerator />
+                    </div>
                   </div>
                 </DashboardLayout>
               </PrivateRoute>
@@ -168,20 +140,26 @@ const AppContent = () => {
             element={
               <PrivateRoute>
                 <DashboardLayout>
-                  <div className="space-y-6">
-                    <VideoGenerator />
+                  <div className="py-6">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                      <VideoGenerator />
+                    </div>
                   </div>
                 </DashboardLayout>
               </PrivateRoute>
             }
           />
+
+          {/* Protected Gallery Routes */}
           <Route
             path="/gallery/images"
             element={
               <PrivateRoute>
                 <DashboardLayout>
-                  <div className="space-y-6">
-                    <ImageGallery />
+                  <div className="py-6">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                      <ImageGallery />
+                    </div>
                   </div>
                 </DashboardLayout>
               </PrivateRoute>
@@ -192,19 +170,27 @@ const AppContent = () => {
             element={
               <PrivateRoute>
                 <DashboardLayout>
-                  <div className="space-y-6">
-                    <VideoGallery />
+                  <div className="py-6">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                      <VideoGallery />
+                    </div>
                   </div>
                 </DashboardLayout>
               </PrivateRoute>
             }
           />
+
+          {/* Protected Account Routes */}
           <Route
             path="/token-history"
             element={
               <PrivateRoute>
                 <DashboardLayout>
-                  <TokenHistory />
+                  <div className="py-6">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                      <TokenHistory />
+                    </div>
+                  </div>
                 </DashboardLayout>
               </PrivateRoute>
             }

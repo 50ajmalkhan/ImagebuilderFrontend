@@ -31,11 +31,11 @@ const LoginForm = () => {
       navigate('/dashboard');
     } catch (err) {
       if (err.response?.status === 401) {
-        setError('Invalid email or password');
+        setError(t('errors.auth.invalidCredentials'));
       } else if (err.response?.status === 403) {
-        setError('Please verify your email before logging in');
+        setError(t('errors.auth.emailNotVerified'));
       } else {
-        setError(err.response?.data?.detail || 'Failed to login. Please try again.');
+        setError(t('errors.auth.loginFailed'));
       }
     } finally {
       setLoading(false);
@@ -49,15 +49,19 @@ const LoginForm = () => {
         <div className="max-w-md w-full space-y-8">
           <div className="text-center">
             <h2 className="text-4xl font-extrabold text-white mb-2">
-              {t('auth.login')}
+              {t('auth.welcomeBack')}
             </h2>
+            <p className="text-xl text-gray-300 mb-4">
+              {t('auth.signInToContinue')}
+            </p>
             <p className="text-gray-300">
-              {t('auth.noAccount')} {' '}
+              {t('auth.noAccount')}{' '}
               <Link to="/signup" className="text-indigo-400 hover:text-indigo-300 font-medium">
-                {t('auth.signUp')}
+                {t('auth.signUpNow')}
               </Link>
             </p>
           </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,6 +80,7 @@ const LoginForm = () => {
                   </div>
                 </motion.div>
               )}
+
               <div className="space-y-4">
                 <TextField
                   label={t('auth.email')}
@@ -87,6 +92,7 @@ const LoginForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                 />
+
                 <TextField
                   label={t('auth.password')}
                   id="password"
@@ -99,7 +105,15 @@ const LoginForm = () => {
                 />
               </div>
 
-              <div className="mt-6">
+              <div className="flex items-center justify-between">
+                <div className="text-sm">
+                  <Link to="/forgot-password" className="text-indigo-400 hover:text-indigo-300">
+                    {t('auth.forgotPassword')}
+                  </Link>
+                </div>
+              </div>
+
+              <div>
                 <button
                   type="submit"
                   disabled={loading}
@@ -111,7 +125,7 @@ const LoginForm = () => {
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
                   ) : (
-                    t('auth.login')
+                    t('auth.signIn')
                   )}
                 </button>
               </div>
