@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image as ImageIcon, Video as VideoIcon, ExternalLink, Coins } from 'lucide-react';
+import { Image as ImageIcon, Video as VideoIcon, ExternalLink, Coins, CreditCard, DollarSign } from 'lucide-react';
 import { tokens } from '../lib/api';
 
 const TokenHistory = () => {
@@ -33,6 +33,53 @@ const TokenHistory = () => {
     };
     fetchHistory();
   }, []);
+
+  const getActionIcon = (item) => {
+    if (item.action_type === 'added') {
+      return (
+        <div className="p-2 bg-green-900/50 rounded-full shrink-0">
+          <DollarSign className="w-5 h-5 sm:w-6 sm:h-6 text-green-400" />
+        </div>
+      );
+    } else if (item.description.toLowerCase().includes('image')) {
+      return (
+        <div className="p-2 bg-blue-900/50 rounded-full shrink-0">
+          <ImageIcon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+        </div>
+      );
+    } else {
+      return (
+        <div className="p-2 bg-purple-900/50 rounded-full shrink-0">
+          <VideoIcon className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" />
+        </div>
+      );
+    }
+  };
+
+  const renderExtraInfo = (item) => {
+    if (item.action_type === 'added' && item.extra_data?.amount_paid) {
+      return (
+        <div className="mt-3 text-sm bg-gray-800/50 p-3 rounded flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <CreditCard className="w-4 h-4 text-green-400" />
+            <span className="text-gray-300">Payment Amount:</span>
+          </div>
+          <span className="font-medium text-green-400">${item.extra_data.amount_paid}</span>
+        </div>
+      );
+    }
+    
+    if (item.extra_data?.prompt) {
+      return (
+        <div className="mt-3 text-sm text-gray-300 bg-gray-800/50 p-3 rounded">
+          <span className="font-medium">{t('tokenHistory.prompt')}:</span>{' '}
+          <span className="break-words">{item.extra_data.prompt}</span>
+        </div>
+      );
+    }
+    
+    return null;
+  };
 
   if (loading) {
     return (
@@ -87,16 +134,7 @@ const TokenHistory = () => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-center space-x-3 sm:space-x-4">
-                    {/* Icon based on action type */}
-                    {item.description.toLowerCase().includes('image') ? (
-                      <div className="p-2 bg-blue-900/50 rounded-full shrink-0">
-                        <ImageIcon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
-                      </div>
-                    ) : (
-                      <div className="p-2 bg-purple-900/50 rounded-full shrink-0">
-                        <VideoIcon className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" />
-                      </div>
-                    )}
+                    {getActionIcon(item)}
                     
                     <div className="min-w-0">
                       <h4 className="font-medium text-gray-200 truncate">
@@ -111,8 +149,9 @@ const TokenHistory = () => {
                   <div className="flex items-center justify-between sm:justify-end space-x-4">
                     <span className={`font-semibold ${
                       item.tokens < 0 ? 'text-red-400' : 'text-green-400'
-                    }`}>
-                      {item.tokens > 0 ? '+' : ''}{item.tokens}
+                    } flex items-center space-x-1`}>
+                      <Coins className="w-4 h-4" />
+                      <span>{item.tokens > 0 ? '+' : ''}{item.tokens}</span>
                     </span>
                     
                     {item.extra_data?.generation_url && (
@@ -128,12 +167,7 @@ const TokenHistory = () => {
                   </div>
                 </div>
                 
-                {item.extra_data?.prompt && (
-                  <div className="mt-3 text-sm text-gray-300 bg-gray-800/50 p-3 rounded">
-                    <span className="font-medium">{t('tokenHistory.prompt')}:</span>{' '}
-                    <span className="break-words">{item.extra_data.prompt}</span>
-                  </div>
-                )}
+                {renderExtraInfo(item)}
                 
                 {item.extra_data?.generation_url && (
                   <div className="mt-4">

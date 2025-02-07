@@ -18,7 +18,9 @@
       "zh": "中文",
       "ja": "日本語",
       "ar": "العربية"
-    }
+    },
+    "purchaseTokens": "Purchase Tokens",
+    "returnToHome": "Return to Home"
   },
   "auth": {
     "login": "Login",
@@ -83,8 +85,8 @@
   },
   "imageGeneration": {
     "title": "Generate Image",
-    "prompt": "Describe your image",
-    "promptPlaceholder": "Enter a detailed description of the image you want to generate",
+    "prompt": "Enter your prompt",
+    "promptPlaceholder": "Describe the image you want to generate...",
     "generate": "Generate Image",
     "uploadImage": "Upload Image",
     "dragDrop": "or drag and drop",
@@ -102,12 +104,12 @@
   },
   "videoGeneration": {
     "title": "Generate Video",
-    "prompt": "Describe your video",
-    "promptPlaceholder": "Enter a detailed description of the video you want to generate",
-    "image": "Reference Image",
+    "prompt": "Enter your prompt",
+    "promptPlaceholder": "Describe the video you want to generate...",
+    "image": "Upload Reference Image",
     "uploadImage": "Upload an image",
     "dragAndDrop": "or drag and drop",
-    "imageRequirements": "PNG, JPG up to 10MB",
+    "imageRequirements": "PNG, JPG up to 5MB",
     "generate": "Generate Video",
     "generating": "Generating...",
     "download": "Download Video",
@@ -300,21 +302,38 @@
     }
   },
   "gallery": {
+    "imageGallery": "Image Gallery",
+    "videoGallery": "Video Gallery",
     "noImages": {
       "title": "No images",
-      "description": "Get started by generating your first image"
+      "description": "Get started by generating your first image."
     },
     "noVideos": {
       "title": "No videos",
-      "description": "Get started by generating your first video"
+      "description": "Get started by generating your first video."
     }
   },
   "tokenHistory": {
     "title": "Token History",
     "currentBalance": "Current Balance",
-    "noHistory": "No token history available yet",
+    "noHistory": "No transaction history available",
     "prompt": "Prompt",
-    "loading": "Loading token history...",
-    "error": "Failed to load token history"
+    "paymentAmount": "Payment Amount"
+  },
+  "payment": {
+    "title": "Payment",
+    "verifying": "Verifying Payment",
+    "please_wait": "Please wait while we verify your payment...",
+    "success_title": "Payment Successful!",
+    "success_description": "Your payment has been processed successfully. Your tokens have been added to your account.",
+    "tokens_updated": "Token Balance Updated",
+    "continue_to_search": "Continue to Search",
+    "back_to_search": "Back to Search",
+    "verification_failed": "Payment Verification Failed",
+    "error": {
+      "no_session": "No payment session found",
+      "generic": "An error occurred while processing your payment",
+      "already_processed": "This payment was already processed"
+    }
   }
 } 

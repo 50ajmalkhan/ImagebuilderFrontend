@@ -14,6 +14,7 @@ import Header from './components/Layout/Header';
 import DashboardHeader from './components/Layout/DashboardHeader';
 import EmailVerificationPage from './pages/EmailVerificationPage';
 import TokenHistory from './pages/TokenHistory';
+import PaymentSuccessPage from './pages/PaymentSuccessPage';
 import { useTranslation } from 'react-i18next';
 
 const PrivateRoute = ({ children }) => {
@@ -156,13 +157,6 @@ const AppContent = () => {
               <PrivateRoute>
                 <DashboardLayout>
                   <div className="space-y-6">
-                    <div className="md:flex md:items-center md:justify-between">
-                      <div className="flex-1 min-w-0">
-                        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                          Generate New Image
-                        </h2>
-                      </div>
-                    </div>
                     <ImageGenerator />
                   </div>
                 </DashboardLayout>
@@ -175,13 +169,6 @@ const AppContent = () => {
               <PrivateRoute>
                 <DashboardLayout>
                   <div className="space-y-6">
-                    <div className="md:flex md:items-center md:justify-between">
-                      <div className="flex-1 min-w-0">
-                        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                          Generate New Video
-                        </h2>
-                      </div>
-                    </div>
                     <VideoGenerator />
                   </div>
                 </DashboardLayout>
@@ -194,13 +181,6 @@ const AppContent = () => {
               <PrivateRoute>
                 <DashboardLayout>
                   <div className="space-y-6">
-                    <div className="md:flex md:items-center md:justify-between">
-                      <div className="flex-1 min-w-0">
-                        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                          Image Gallery
-                        </h2>
-                      </div>
-                    </div>
                     <ImageGallery />
                   </div>
                 </DashboardLayout>
@@ -213,13 +193,6 @@ const AppContent = () => {
               <PrivateRoute>
                 <DashboardLayout>
                   <div className="space-y-6">
-                    <div className="md:flex md:items-center md:justify-between">
-                      <div className="flex-1 min-w-0">
-                        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                          Video Gallery
-                        </h2>
-                      </div>
-                    </div>
                     <VideoGallery />
                   </div>
                 </DashboardLayout>
@@ -233,6 +206,14 @@ const AppContent = () => {
                 <DashboardLayout>
                   <TokenHistory />
                 </DashboardLayout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/payment/success"
+            element={
+              <PrivateRoute>
+                <PaymentSuccessPage />
               </PrivateRoute>
             }
           />

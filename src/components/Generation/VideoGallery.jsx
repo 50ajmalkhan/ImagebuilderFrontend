@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { videos } from '../../lib/api';
 import DownloadIcon from '../common/DownloadIcon';
+import { useTranslation } from 'react-i18next';
 
 const VideoGallery = () => {
   const [videoList, setVideoList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const { t } = useTranslation();
 
   const handleDownload = async (video) => {
     try {
@@ -86,54 +88,59 @@ const VideoGallery = () => {
             d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
           />
         </svg>
-        <h3 className="mt-2 text-sm font-medium text-gray-200">No videos</h3>
-        <p className="mt-1 text-sm text-gray-400">Get started by generating your first video.</p>
+        <h3 className="mt-2 text-sm font-medium text-gray-200">{t('gallery.noVideos.title')}</h3>
+        <p className="mt-1 text-sm text-gray-400">{t('gallery.noVideos.description')}</p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-      {videoList.map((video) => (
-        <div
-          key={video.id}
-          className="relative group bg-[#252b3d] rounded-lg shadow-lg border border-gray-700 overflow-hidden"
-        >
-          <div className="relative aspect-w-16 aspect-h-9">
-            <video
-              controls
-              className="w-full h-full object-cover"
-              src={video.url}
-              poster={video.reference_image_url}
-            >
-              Your browser does not support the video tag.
-            </video>
-            <div className="absolute top-2 right-2 z-10">
-              <DownloadIcon 
-                onClick={() => handleDownload(video)}
-                className="text-white opacity-90 hover:opacity-100"
-              />
+    <div className="space-y-6">
+      <h2 className="text-2xl font-bold leading-7 text-white sm:text-3xl sm:truncate">
+        {t('gallery.videoGallery')}
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {videoList.map((video) => (
+          <div
+            key={video.id}
+            className="relative group bg-[#252b3d] rounded-lg shadow-lg border border-gray-700 overflow-hidden"
+          >
+            <div className="relative aspect-w-16 aspect-h-9">
+              <video
+                controls
+                className="w-full h-full object-cover"
+                src={video.url}
+                poster={video.reference_image_url}
+              >
+                Your browser does not support the video tag.
+              </video>
+              <div className="absolute top-2 right-2 z-10">
+                <DownloadIcon 
+                  onClick={() => handleDownload(video)}
+                  className="text-white opacity-90 hover:opacity-100"
+                />
+              </div>
+            </div>
+            <div className="p-4">
+              <p className="text-sm text-gray-300 truncate" title={video.prompt}>
+                {video.prompt}
+              </p>
+              <div className="mt-2 flex justify-between items-center">
+                <span className="text-xs text-gray-400">
+                  {new Date(video.generated_at || video.created_at).toLocaleDateString()}
+                </span>
+                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  video.status === 'success'
+                    ? 'bg-green-900/50 text-green-200'
+                    : 'bg-yellow-900/50 text-yellow-200'
+                }`}>
+                  {video.status}
+                </span>
+              </div>
             </div>
           </div>
-          <div className="p-4">
-            <p className="text-sm text-gray-300 truncate" title={video.prompt}>
-              {video.prompt}
-            </p>
-            <div className="mt-2 flex justify-between items-center">
-              <span className="text-xs text-gray-400">
-                {new Date(video.generated_at || video.created_at).toLocaleDateString()}
-              </span>
-              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                video.status === 'success'
-                  ? 'bg-green-900/50 text-green-200'
-                  : 'bg-yellow-900/50 text-yellow-200'
-              }`}>
-                {video.status}
-              </span>
-            </div>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

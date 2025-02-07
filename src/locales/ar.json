@@ -1,6 +1,6 @@
 {
     "common": {
-      "appName": "فيدجن",
+      "appName": "فيد جن",
       "loading": "جاري التحميل...",
       "error": "خطأ",
       "success": "نجاح",
@@ -18,7 +18,9 @@
         "zh": "中文",
         "ja": "日本語",
         "ar": "العربية"
-      }
+      },
+      "purchaseTokens": "شراء الرموز",
+      "returnToHome": "العودة إلى الرئيسية"
     },
     "auth": {
       "login": "تسجيل الدخول",
@@ -83,8 +85,8 @@
     },
     "imageGeneration": {
       "title": "إنشاء صورة",
-      "prompt": "صف صورتك",
-      "promptPlaceholder": "أدخل وصفاً تفصيلياً للصورة التي تريد إنشاءها",
+      "prompt": "أدخل الوصف",
+      "promptPlaceholder": "صف الصورة التي تريد إنشاءها...",
       "generate": "إنشاء الصورة",
       "uploadImage": "رفع صورة",
       "dragDrop": "أو اسحب وأفلت",
@@ -102,12 +104,12 @@
     },
     "videoGeneration": {
       "title": "إنشاء فيديو",
-      "prompt": "صف الفيديو الخاص بك",
-      "promptPlaceholder": "أدخل وصفاً تفصيلياً للفيديو الذي تريد إنشاءه",
-      "image": "الصورة المرجعية",
-      "uploadImage": "رفع صورة",
+      "prompt": "أدخل الوصف",
+      "promptPlaceholder": "صف الفيديو الذي تريد إنشاءه...",
+      "image": "تحميل صورة مرجعية",
+      "uploadImage": "تحميل صورة",
       "dragAndDrop": "أو اسحب وأفلت",
-      "imageRequirements": "PNG، JPG حتى 10 ميجابايت",
+      "imageRequirements": "PNG، JPG حتى 5 ميجابايت",
       "generate": "إنشاء الفيديو",
       "generating": "جاري الإنشاء...",
       "download": "تحميل الفيديو",
@@ -299,21 +301,38 @@
       }
     },
     "gallery": {
+      "imageGallery": "معرض الصور",
+      "videoGallery": "معرض الفيديو",
       "noImages": {
         "title": "لا توجد صور",
-        "description": "ابدأ بإنشاء أول صورة لك"
+        "description": "ابدأ بإنشاء أول صورة لك."
       },
       "noVideos": {
         "title": "لا توجد مقاطع فيديو",
-        "description": "ابدأ بإنشاء أول مقطع فيديو لك"
+        "description": "ابدأ بإنشاء أول مقطع فيديو لك."
       }
     },
     "tokenHistory": {
       "title": "سجل الرموز",
       "currentBalance": "الرصيد الحالي",
-      "noHistory": "لا يوجد سجل للرموز حتى الآن",
-      "prompt": "النص",
-      "loading": "جاري تحميل سجل الرموز...",
-      "error": "فشل في تحميل سجل الرموز"
+      "noHistory": "لا يوجد سجل معاملات متاح",
+      "prompt": "الوصف",
+      "paymentAmount": "مبلغ الدفع"
+    },
+    "payment": {
+      "title": "الدفع",
+      "verifying": "جاري التحقق من الدفع",
+      "please_wait": "يرجى الانتظار بينما نتحقق من عملية الدفع...",
+      "success_title": "تم الدفع بنجاح!",
+      "success_description": "تمت معالجة عملية الدفع بنجاح. تمت إضافة الرموز إلى حسابك.",
+      "tokens_updated": "تم تحديث رصيد الرموز",
+      "continue_to_search": "المتابعة إلى البحث",
+      "back_to_search": "العودة إلى البحث",
+      "verification_failed": "فشل التحقق من الدفع",
+      "error": {
+        "no_session": "لم يتم العثور على جلسة دفع",
+        "generic": "حدث خطأ أثناء معالجة عملية الدفع",
+        "already_processed": "تمت معالجة عملية الدفع هذه مسبقاً"
+      }
     }
   } 
