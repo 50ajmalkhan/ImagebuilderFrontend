@@ -136,11 +136,15 @@
       "subtitle": "Create stunning, unique images and videos using advanced AI technology. Perfect for designers, content creators, and anyone with a creative vision.",
       "cta": {
         "primary": "Get Started Free",
-        "secondary": "Sign In"
+        "secondary": "Explore Dashboard"
+      },
+      "navigation": {
+        "generate": "Start Creating",
+        "dashboard": "View Dashboard"
       }
     },
     "features": {
-      "title": "Features",
+      "title": "Powerful Features",
       "subtitle": "Everything You Need for Content Creation",
       "description": "Our platform provides all the tools you need to bring your creative ideas to life.",
       "items": {
@@ -152,22 +156,6 @@
           "title": "Video Creation",
           "description": "Convert your images into engaging video content effortlessly"
         },
-        "styles": {
-          "title": "Multiple Styles",
-          "description": "Choose from various artistic styles to match your creative vision"
-        },
-        "speed": {
-          "title": "Lightning Fast",
-          "description": "Get your generated content in seconds, not minutes"
-        },
-        "security": {
-          "title": "Secure Platform",
-          "description": "Your content and data are protected with enterprise-grade security"
-        },
-        "availability": {
-          "title": "24/7 Generation",
-          "description": "Create content whenever inspiration strikes, day or night"
-        },
         "history": {
           "title": "Generation History",
           "description": "Keep track of all your creations and revisit them anytime"
@@ -175,11 +163,24 @@
         "download": {
           "title": "Easy Downloads",
           "description": "Download your generated content in high resolution formats"
+        },
+        "quality": {
+          "title": "High Quality Output",
+          "description": "Generate professional-grade images and videos with stunning detail and clarity"
+        },
+        "speed": {
+          "title": "Lightning Fast",
+          "description": "Get your results in seconds with our optimized AI processing pipeline"
+        },
+        "security": {
+          "title": "Secure Platform",
+          "description": "Enterprise-grade security ensures your content and data remain protected"
         }
       }
     },
     "showcase": {
-      "title": "Showcase",
+      "title": "What You Can Create",
+      "subtitle": "Explore the possibilities with our AI-powered tools",
       "items": {
         "landscapes": {
           "title": "AI-Generated Landscapes",
@@ -197,7 +198,7 @@
     },
     "testimonials": {
       "title": "What Our Users Say",
-      "subtitle": "Join thousands of satisfied creators who use VidGen every day",
+      "subtitle": "Join thousands of satisfied creators who use our platform",
       "items": {
         "artist": {
           "name": "Sarah Johnson",
@@ -216,57 +217,73 @@
         }
       }
     },
-    "pricing": {
-      "title": "Simple, Transparent Pricing",
-      "subtitle": "Choose the plan that's right for you",
-      "popular": "Popular",
-      "plans": {
-        "starter": {
-          "name": "Starter",
-          "price": "Free",
-          "features": [
-            "100 AI Image Generations/month",
-            "5 Video Generations/month",
-            "Basic Styles",
-            "Community Support"
-          ],
-          "cta": "Get Started"
-        },
-        "pro": {
-          "name": "Pro",
-          "price": "$29/month",
-          "features": [
-            "1000 AI Image Generations/month",
-            "50 Video Generations/month",
-            "All Styles & Effects",
-            "Priority Support",
-            "API Access",
-            "No Watermark"
-          ],
-          "cta": "Start Pro Trial"
-        },
-        "enterprise": {
-          "name": "Enterprise",
-          "price": "Custom",
-          "features": [
-            "Unlimited Generations",
-            "Custom Style Training",
-            "Dedicated Support",
-            "SLA Guarantee",
-            "Team Management",
-            "Custom Integration"
-          ],
-          "cta": "Contact Sales"
+    "cta": {
+      "title": "Join thousands of creators and bring your ideas to life",
+      "subtitle": "Start your creative journey today",
+      "button": "Get Started Now"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Create stunning visuals in four simple steps",
+      "steps": {
+        "items": {
+          "describe": {
+            "title": "Describe Your Vision",
+            "description": "Start by describing the image you want to create using natural language."
+          },
+          "generate": {
+            "title": "AI Generation",
+            "description": "Our advanced AI models transform your description into stunning visuals."
+          },
+          "video": {
+            "title": "Create Videos",
+            "description": "Convert your generated images into dynamic video content."
+          },
+          "download": {
+            "title": "Download & Share",
+            "description": "Download your creations in high quality and share them with the world."
+          }
         }
       }
     },
-    "cta": {
-      "title": {
-        "part1": "Ready to Transform Your Creative Process?",
-        "part2": "Start your free trial today."
+    "plans": {
+      "title": "Choose Your Plan",
+      "subtitle": "Start creating with a plan that works for you",
+      "items": {
+        "starter": {
+          "name": "Starter",
+          "price": "19",
+          "features": [
+            "100 Image Generations",
+            "50 Video Generations",
+            "Basic Support",
+            "720p Video Quality"
+          ]
+        },
+        "professional": {
+          "name": "Professional",
+          "price": "49",
+          "features": [
+            "500 Image Generations",
+            "250 Video Generations",
+            "Priority Support",
+            "1080p Video Quality"
+          ],
+          "popular": "Most Popular"
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "price": "99",
+          "features": [
+            "Unlimited Generations",
+            "24/7 Support",
+            "4K Video Quality",
+            "API Access"
+          ]
+        }
       },
-      "subtitle": "Join thousands of creators who are already using our platform to bring their ideas to life.",
-      "button": "Get Started Free"
+      "perMonth": "/month",
+      "getStarted": "Get Started"
     }
   },
   "errors": {
@@ -335,5 +352,11 @@
       "generic": "An error occurred while processing your payment",
       "already_processed": "This payment was already processed"
     }
+  },
+  "navigation": {
+    "generate": "Generate",
+    "dashboard": "Dashboard",
+    "gallery": "Gallery",
+    "settings": "Settings"
   }
 } 

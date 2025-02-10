@@ -25,26 +25,26 @@ const LandingPage = () => {
   const steps = [
     {
       icon: <Image className="w-8 h-8" />,
-      title: "Describe Your Vision",
-      description: "Start by describing the image you want to create using natural language.",
+      title: t('landing.howItWorks.steps.items.describe.title'),
+      description: t('landing.howItWorks.steps.items.describe.description'),
       color: "from-blue-500/20 via-indigo-500/20 to-blue-600/20"
     },
     {
       icon: <Wand2 className="w-8 h-8" />,
-      title: "AI Generation",
-      description: "Our advanced AI models transform your description into stunning visuals.",
+      title: t('landing.howItWorks.steps.items.generate.title'),
+      description: t('landing.howItWorks.steps.items.generate.description'),
       color: "from-purple-500/20 via-pink-500/20 to-purple-600/20"
     },
     {
       icon: <Video className="w-8 h-8" />,
-      title: "Create Videos",
-      description: "Convert your generated images into dynamic video content.",
+      title: t('landing.howItWorks.steps.items.video.title'),
+      description: t('landing.howItWorks.steps.items.video.description'),
       color: "from-pink-500/20 via-rose-500/20 to-pink-600/20"
     },
     {
       icon: <Download className="w-8 h-8" />,
-      title: "Download & Share",
-      description: "Download your creations in high quality and share them with the world.",
+      title: t('landing.howItWorks.steps.items.download.title'),
+      description: t('landing.howItWorks.steps.items.download.description'),
       color: "from-green-500/20 via-emerald-500/20 to-green-600/20"
     }
   ];
@@ -52,61 +52,61 @@ const LandingPage = () => {
   const features = [
     {
       icon: <Sparkles className="w-6 h-6" />,
-      title: "High Quality Output",
-      description: "Generate professional-grade images and videos with stunning detail and clarity."
+      title: t('landing.features.items.quality.title'),
+      description: t('landing.features.items.quality.description')
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "Lightning Fast",
-      description: "Get your results in seconds with our optimized AI processing pipeline."
+      title: t('landing.features.items.speed.title'),
+      description: t('landing.features.items.speed.description')
     },
     {
       icon: <Shield className="w-6 h-6" />,
-      title: "Secure Platform",
-      description: "Enterprise-grade security ensures your content and data remain protected."
+      title: t('landing.features.items.security.title'),
+      description: t('landing.features.items.security.description')
     }
   ];
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "Digital Artist",
+      name: t('landing.testimonials.items.sarah.name'),
+      role: t('landing.testimonials.items.sarah.role'),
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
-      quote: "This platform has revolutionized my creative workflow. The AI-generated content is simply amazing!"
+      quote: t('landing.testimonials.items.sarah.quote')
     },
     {
-      name: "Michael Rodriguez",
-      role: "Content Creator",
+      name: t('landing.testimonials.items.michael.name'),
+      role: t('landing.testimonials.items.michael.role'),
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
-      quote: "The speed and quality of video generation has helped me scale my content production significantly."
+      quote: t('landing.testimonials.items.michael.quote')
     },
     {
-      name: "Emily Thompson",
-      role: "Marketing Director",
+      name: t('landing.testimonials.items.emily.name'),
+      role: t('landing.testimonials.items.emily.role'),
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
-      quote: "An invaluable tool for our marketing campaigns. The results consistently exceed our expectations."
+      quote: t('landing.testimonials.items.emily.quote')
     }
   ];
 
   const plans = [
     {
-      name: "Starter",
-      price: "19",
-      features: ["100 Image Generations", "50 Video Generations", "Basic Support", "720p Video Quality"],
-      color: "from-blue-500 to-indigo-600"
+      name: t('landing.pricing.plans.items.starter.name'),
+      price: t('landing.pricing.plans.items.starter.price'),
+      features: t('landing.pricing.plans.items.starter.features', { returnObjects: true }),
+      getStarted: t('landing.pricing.plans.getStarted')
     },
     {
-      name: "Professional",
-      price: "49",
-      features: ["500 Image Generations", "250 Video Generations", "Priority Support", "1080p Video Quality"],
-      color: "from-indigo-500 to-purple-600",
-      popular: true
+      name: t('landing.pricing.plans.items.professional.name'),
+      price: t('landing.pricing.plans.items.professional.price'),
+      features: t('landing.pricing.plans.items.professional.features', { returnObjects: true }),
+      popular: t('landing.pricing.plans.items.professional.popular'),
+      getStarted: t('landing.pricing.plans.getStarted')
     },
     {
-      name: "Enterprise",
-      price: "99",
-      features: ["Unlimited Generations", "24/7 Support", "4K Video Quality", "API Access"],
-      color: "from-purple-500 to-pink-600"
+      name: t('landing.pricing.plans.items.enterprise.name'),
+      price: t('landing.pricing.plans.items.enterprise.price'),
+      features: t('landing.pricing.plans.items.enterprise.features', { returnObjects: true }),
+      getStarted: t('landing.pricing.plans.getStarted')
     }
   ];
 
@@ -130,11 +130,11 @@ const LandingPage = () => {
               className="text-5xl sm:text-6xl lg:text-7xl font-extrabold"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
-                Transform Your Ideas
+                {t('landing.hero.title.part1')}
               </span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400">
-                Into Reality
+                {t('landing.hero.title.part2')}
               </span>
             </motion.h1>
             
@@ -142,7 +142,7 @@ const LandingPage = () => {
               variants={fadeInUp}
               className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
             >
-              Create stunning images and videos with the power of AI. Turn your imagination into beautiful visual content in seconds.
+              {t('landing.hero.subtitle')}
             </motion.p>
 
             <motion.div 
@@ -153,7 +153,7 @@ const LandingPage = () => {
                 to="/signup"
                 className="group inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-medium hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 transform hover:-translate-y-1"
               >
-                Get Started Free
+                {t('landing.hero.cta.primary')}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
               
@@ -161,7 +161,7 @@ const LandingPage = () => {
                 to="/login"
                 className="inline-flex items-center px-8 py-4 rounded-xl bg-gray-800 text-white font-medium hover:bg-gray-700 transition-all duration-300 border border-gray-700 hover:border-gray-600"
               >
-                Sign In
+                {t('landing.hero.cta.secondary')}
               </Link>
             </motion.div>
           </motion.div>
@@ -176,65 +176,37 @@ const LandingPage = () => {
       </motion.section>
 
       {/* How It Works Section */}
-      <motion.section 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="py-24 bg-[#252b3d] relative overflow-hidden"
-      >
+      <section className="py-20 bg-[#1a1f2e] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl sm:text-5xl font-bold text-white mb-6"
-            >
-              How It Works
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-400"
-            >
-              Create stunning visuals in four simple steps
-            </motion.p>
+            <h2 className="text-4xl font-bold mb-4">
+              {t('landing.howItWorks.title')}
+            </h2>
+            <p className="text-xl text-gray-400">
+              {t('landing.howItWorks.subtitle')}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="relative group"
+                className={`p-6 rounded-xl bg-gradient-to-br ${step.color} backdrop-blur-lg`}
               >
-                <div className={`p-8 rounded-2xl bg-gradient-to-br ${step.color} backdrop-blur-xl border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 transform hover:-translate-y-1`}>
-                  <div className="text-white mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {step.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-300">
-                    {step.description}
-                  </p>
+                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-4">
+                  {step.icon}
                 </div>
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-gray-600" />
-                  </div>
-                )}
-              </motion.div>
+                <h3 className="text-xl font-semibold mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-gray-300">
+                  {step.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Features Section */}
       <motion.section 
@@ -252,7 +224,7 @@ const LandingPage = () => {
               viewport={{ once: true }}
               className="text-4xl sm:text-5xl font-bold text-white mb-6"
             >
-              Powerful Features
+              {t('landing.features.title')}
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -261,7 +233,7 @@ const LandingPage = () => {
               transition={{ delay: 0.2 }}
               className="text-xl text-gray-400"
             >
-              Everything you need to create amazing content
+              {t('landing.features.subtitle')}
             </motion.p>
           </div>
 
@@ -306,7 +278,7 @@ const LandingPage = () => {
               viewport={{ once: true }}
               className="text-4xl sm:text-5xl font-bold text-white mb-6"
             >
-              What Our Users Say
+              {t('landing.showcase.title')}
             </motion.h2>
           </div>
 
@@ -361,7 +333,7 @@ const LandingPage = () => {
               viewport={{ once: true }}
               className="text-4xl sm:text-5xl font-bold text-white mb-6"
             >
-              Simple Pricing
+              {t('landing.pricing.plans.title')}
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -370,7 +342,7 @@ const LandingPage = () => {
               transition={{ delay: 0.2 }}
               className="text-xl text-gray-400"
             >
-              Choose the perfect plan for your needs
+              {t('landing.pricing.plans.subtitle')}
             </motion.p>
           </div>
 
@@ -389,14 +361,14 @@ const LandingPage = () => {
                 {plan.popular && (
                   <div className="absolute top-0 right-6 transform -translate-y-1/2">
                     <div className="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-medium">
-                      Most Popular
+                      {plan.popular}
                     </div>
                   </div>
                 )}
                 <h3 className="text-2xl font-bold text-white mb-4">{plan.name}</h3>
                 <div className="flex items-baseline mb-8">
                   <span className="text-4xl font-bold text-white">${plan.price}</span>
-                  <span className="ml-2 text-gray-400">/month</span>
+                  <span className="ml-2 text-gray-400">{t('landing.pricing.plans.perMonth')}</span>
                 </div>
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, i) => (
@@ -415,7 +387,7 @@ const LandingPage = () => {
                   }`}
                 >
                   <CreditCard className="w-5 h-5 mr-2" />
-                  Get Started
+                  {plan.getStarted}
                 </Link>
               </motion.div>
             ))}
@@ -433,16 +405,16 @@ const LandingPage = () => {
       >
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8">
-            Ready to Transform Your Ideas?
+            {t('landing.cta.title')}
           </h2>
           <p className="text-xl text-gray-300 mb-12">
-            Join thousands of creators who are already using our platform to bring their visions to life.
+            {t('landing.cta.subtitle')}
           </p>
           <Link
             to="/signup"
             className="group inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-medium hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:-translate-y-1"
           >
-            Get Started Free
+            {t('landing.cta.button')}
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>
