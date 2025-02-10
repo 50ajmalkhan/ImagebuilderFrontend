@@ -1,295 +1,379 @@
 {
-    "common": {
-      "appName": "VidGen",
-      "loading": "Chargement...",
-      "error": "Erreur",
-      "success": "Succès",
-      "returnToLogin": "Retour à la connexion",
-      "returnToLanding": "Retour à l'accueil",
-      "sending": "Envoi en cours...",
-      "verifying": "Vérification...",
-      "redirectingToLanding": "Redirection vers la page d'accueil dans quelques secondes...",
-      "languages": {
-        "en": "English",
-        "es": "Español",
-        "fr": "Français",
-        "de": "Deutsch",
-        "it": "Italiano",
-        "zh": "中文",
-        "ja": "日本語",
-        "ar": "العربية"
-      }
+  "common": {
+    "appName": "VidGen",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "returnToLogin": "Retour à la connexion",
+    "returnToLanding": "Retour à l'accueil",
+    "sending": "Envoi en cours...",
+    "verifying": "Vérification en cours...",
+    "redirectingToLanding": "Redirection vers la page d'accueil...",
+    "languages": {
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "zh": "中文",
+      "ja": "日本語",
+      "ar": "العربية"
     },
-    "auth": {
-      "login": "Connexion",
-      "signup": "S'inscrire",
-      "logout": "Déconnexion",
-      "email": "E-mail",
-      "password": "Mot de passe",
-      "name": "Nom complet",
-      "forgotPassword": "Mot de passe oublié ?",
-      "noAccount": "Pas encore de compte ?",
-      "haveAccount": "Déjà un compte ?",
-      "signIn": "Se connecter",
-      "getStarted": "Commencer",
-      "createAccount": "Créer un compte",
-      "confirmPassword": "Confirmer le mot de passe",
-      "verifyEmail": "Vérifiez votre adresse e-mail",
-      "verifyEmailSent": "Nous avons envoyé un lien de vérification à",
-      "verifyEmailInstructions": {
-        "check": "Veuillez vérifier votre e-mail et cliquer sur le lien de vérification",
-        "expiry": "Le lien expirera dans 24 heures",
-        "spam": "Vérifiez votre dossier spam si vous ne voyez pas l'e-mail"
-      },
-      "verifyingEmail": "Verifying Your Email",
-      "verifyingEmailWait": "Please wait while we verify your email address...",
-      "verificationSuccess": "Email Verified Successfully!",
-      "verificationFailed": "Verification Failed",
-      "resendVerification": "Resend Verification Email",
-      "redirectingToLogin": "Redirecting to login page in a few seconds...",
-      "redirectingToDashboard": "Email verified successfully! Redirecting to dashboard...",
-      "exitAiStudio": "Exit AI Studio",
-      "welcomeBack": "Welcome Back",
-      "signInToContinue": "Sign in to continue to AI Creator Studio",
-      "signUp": "Sign Up",
-      "signUpNow": "Sign Up Now",
-      "createYourAccount": "Create Your Account",
-      "alreadyHaveAccount": "Already have an account?"
+    "purchaseTokens": "Acheter des jetons",
+    "returnToHome": "Retour à l'accueil"
+  },
+  "auth": {
+    "login": "Connexion",
+    "signup": "Inscription",
+    "logout": "Déconnexion",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "name": "Nom",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas encore de compte ?",
+    "haveAccount": "Déjà un compte ?",
+    "signIn": "Se connecter",
+    "getStarted": "Commencer",
+    "createAccount": "Créer un compte",
+    "confirmPassword": "Confirmer le mot de passe",
+    "verifyEmail": "Vérifier l'e-mail",
+    "verifyEmailSent": "Lien de vérification envoyé à",
+    "verifyEmailInstructions": {
+      "check": "Vérifiez votre e-mail pour le lien de confirmation",
+      "expiry": "Le lien expirera dans 24 heures",
+      "spam": "N'oubliez pas de vérifier votre dossier spam"
     },
-    "dashboard": {
-      "title": "Tableau de bord",
-      "menu": {
-        "home": "Accueil",
-        "imageGallery": "Galerie d'images",
-        "videoGallery": "Galerie de vidéos",
-        "generateImage": "Générer une image",
-        "generateVideo": "Générer une vidéo"
-      },
-      "recentImages": "Images récentes",
-      "recentVideos": "Vidéos récentes",
-      "viewAll": "Voir tout",
-      "quickActions": {
-        "title": "Actions rapides",
-        "generateImage": {
-          "title": "Générer une nouvelle image",
-          "description": "Créez des images alimentées par l'IA à partir de descriptions textuelles"
-        },
-        "generateVideo": {
-          "title": "Générer une nouvelle vidéo",
-          "description": "Créez des vidéos alimentées par l'IA à partir d'images et de texte"
-        }
-      }
+    "verifyingEmail": "Vérification de l'e-mail en cours...",
+    "verifyingEmailWait": "Veuillez patienter pendant que nous vérifions votre adresse e-mail",
+    "verificationSuccess": "E-mail vérifié avec succès !",
+    "verificationFailed": "La vérification de l'e-mail a échoué",
+    "resendVerification": "Renvoyer le lien de vérification",
+    "redirectingToLogin": "Redirection vers la page de connexion...",
+    "redirectingToDashboard": "Redirection vers le tableau de bord...",
+    "exitAiStudio": "Quitter AI Studio",
+    "welcomeBack": "Bon retour",
+    "signInToContinue": "Connectez-vous pour continuer vers AI Studio",
+    "signUp": "S'inscrire",
+    "signUpNow": "S'inscrire maintenant",
+    "createYourAccount": "Créez votre compte",
+    "alreadyHaveAccount": "Déjà un compte ?"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "menu": {
+      "home": "Accueil",
+      "generateImage": "Générer une image",
+      "generateVideo": "Générer une vidéo",
+      "imageGallery": "Galerie d'images",
+      "videoGallery": "Galerie de vidéos",
+      "tokenHistory": "Historique des jetons"
     },
-    "imageGeneration": {
-      "title": "Génération d'images",
-      "prompt": "Décrivez l'image que vous souhaitez générer",
-      "promptPlaceholder": "Entrez une description détaillée de l'image que vous voulez créer...",
-      "generate": "Générer l'image",
-      "uploadImage": "Télécharger une image",
-      "dragDrop": "ou glisser-déposer",
-      "supportedFormats": "PNG, JPG, GIF jusqu'à 10MB",
-      "generating": "Génération de votre image...",
-      "download": "Télécharger l'image",
-      "share": "Partager l'image",
-      "retry": "Réessayer",
-      "error": {
-        "generation": "Failed to generate image. Please try again.",
-        "upload": "Failed to upload image. Please try again.",
-        "invalidFormat": "Invalid file format. Please use PNG, JPG, or GIF.",
-        "tooLarge": "File is too large. Maximum size is 10MB."
-      }
-    },
-    "videoGeneration": {
-      "title": "Génération de vidéos",
-      "prompt": "Entrez votre prompt pour la vidéo",
-      "generate": "Générer la vidéo",
-      "uploadReference": "Télécharger l'image de référence",
-      "generating": "Génération de votre vidéo...",
-      "download": "Télécharger la vidéo",
-      "share": "Partager la vidéo"
-    },
-    "settings": {
-      "title": "Paramètres",
-      "notifications": "Notifications par e-mail",
-      "autoDownload": "Téléchargement automatique du contenu généré",
-      "twoFactor": "Authentification à deux facteurs",
-      "downloadData": "Télécharger mes données",
-      "privacy": "Paramètres de confidentialité",
-      "language": "Langue",
-      "theme": "Thème"
-    },
-    "landing": {
-      "hero": {
-        "title": {
-          "part1": "Transform Your Ideas into",
-          "part2": "Beautiful Creations"
-        },
-        "subtitle": "Create stunning, unique images and videos using advanced AI technology. Perfect for designers, content creators, and anyone with a creative vision.",
-        "cta": {
-          "primary": "Get Started Free",
-          "secondary": "Sign In"
-        }
+    "recentImages": "Images récentes",
+    "recentVideos": "Vidéos récentes",
+    "viewAll": "Voir tout",
+    "quickActions": {
+      "title": "Actions rapides",
+      "generateImage": {
+        "title": "Générer une nouvelle image",
+        "description": "Créez des images générées par IA à partir de descriptions textuelles"
       },
-      "features": {
-        "title": "Features",
-        "subtitle": "Everything You Need for Content Creation",
-        "description": "Our platform provides all the tools you need to bring your creative ideas to life.",
-        "items": {
-          "imageGeneration": {
-            "title": "AI Image Generation",
-            "description": "Transform text descriptions into stunning, unique images in seconds"
-          },
-          "videoCreation": {
-            "title": "Video Creation",
-            "description": "Convert your images into engaging video content effortlessly"
-          },
-          "styles": {
-            "title": "Multiple Styles",
-            "description": "Choose from various artistic styles to match your creative vision"
-          },
-          "speed": {
-            "title": "Lightning Fast",
-            "description": "Get your generated content in seconds, not minutes"
-          },
-          "security": {
-            "title": "Secure Platform",
-            "description": "Your content and data are protected with enterprise-grade security"
-          },
-          "availability": {
-            "title": "24/7 Generation",
-            "description": "Create content whenever inspiration strikes, day or night"
-          },
-          "history": {
-            "title": "Generation History",
-            "description": "Keep track of all your creations and revisit them anytime"
-          },
-          "download": {
-            "title": "Easy Downloads",
-            "description": "Download your generated content in high resolution formats"
-          }
-        }
-      },
-      "showcase": {
-        "title": "Showcase",
-        "items": {
-          "landscapes": {
-            "title": "AI-Generated Landscapes",
-            "description": "Transform simple text into breathtaking landscape imagery"
-          },
-          "products": {
-            "title": "Product Visualization",
-            "description": "Create professional product renders from descriptions"
-          },
-          "videos": {
-            "title": "Video Stories",
-            "description": "Generate engaging video content for your brand"
-          }
-        }
-      },
-      "testimonials": {
-        "title": "What Our Users Say",
-        "subtitle": "Join thousands of satisfied creators who use VidGen every day",
-        "items": {
-          "artist": {
-            "name": "Sarah Johnson",
-            "role": "Digital Artist",
-            "comment": "VidGen has revolutionized my creative workflow. The AI-generated images are incredibly detailed and save me hours of work."
-          },
-          "marketer": {
-            "name": "Michael Chen",
-            "role": "Marketing Director",
-            "comment": "The video generation feature is a game-changer for our social media content. We can create professional videos in minutes."
-          },
-          "creator": {
-            "name": "Emma Davis",
-            "role": "Content Creator",
-            "comment": "I love how easy it is to experiment with different styles. The platform has helped me find my unique artistic voice."
-          }
-        }
-      },
-      "pricing": {
-        "title": "Simple, Transparent Pricing",
-        "subtitle": "Choose the plan that's right for you",
-        "popular": "Popular",
-        "plans": {
-          "starter": {
-            "name": "Starter",
-            "price": "Free",
-            "features": [
-              "100 AI Image Generations/month",
-              "5 Video Generations/month",
-              "Basic Styles",
-              "Community Support"
-            ],
-            "cta": "Get Started"
-          },
-          "pro": {
-            "name": "Pro",
-            "price": "$29/month",
-            "features": [
-              "1000 AI Image Generations/month",
-              "50 Video Generations/month",
-              "All Styles & Effects",
-              "Priority Support",
-              "API Access",
-              "No Watermark"
-            ],
-            "cta": "Start Pro Trial"
-          },
-          "enterprise": {
-            "name": "Enterprise",
-            "price": "Custom",
-            "features": [
-              "Unlimited Generations",
-              "Custom Style Training",
-              "Dedicated Support",
-              "SLA Guarantee",
-              "Team Management",
-              "Custom Integration"
-            ],
-            "cta": "Contact Sales"
-          }
-        }
-      },
-      "cta": {
-        "title": {
-          "part1": "Ready to Transform Your Creative Process?",
-          "part2": "Start your free trial today."
-        },
-        "subtitle": "Join thousands of creators who are already using our platform to bring their ideas to life.",
-        "button": "Get Started Free"
-      }
-    },
-    "errors": {
-      "invalidEmail": "Veuillez entrer un e-mail valide",
-      "requiredField": "Ce champ est requis",
-      "passwordLength": "Le mot de passe doit contenir au moins 8 caractères",
-      "passwordMatch": "Les mots de passe ne correspondent pas",
-      "uploadFailed": "Échec du téléchargement",
-      "generationFailed": "Échec de la génération",
-      "networkError": "Erreur réseau",
-      "unauthorized": "Veuillez vous connecter pour continuer",
-      "auth": {
-        "nameRequired": "Name is required",
-        "emailRequired": "Email is required",
-        "invalidEmail": "Invalid email address",
-        "passwordLength": "Password must be at least 8 characters long",
-        "passwordMismatch": "Passwords do not match",
-        "emailExists": "An account with this email already exists",
-        "invalidInput": "Invalid input data",
-        "signupFailed": "Failed to create account. Please try again.",
-        "invalidCredentials": "Invalid credentials. Use the pre-filled demo account to login.",
-        "emailNotVerified": "Please verify your email before logging in",
-        "loginFailed": "Failed to login. Please try again."
-      },
-      "verificationErrors": {
-        "invalidToken": "Invalid verification link. The token is missing or malformed.",
-        "expired": "Verification link not found or has expired.",
-        "alreadyVerified": "This email has already been verified. Please login.",
-        "generic": "Verification failed. Please try again or contact support.",
-        "resendLimit": "Please wait a few minutes before requesting another verification email.",
-        "resendFailed": "Failed to resend verification email. Please try again later.",
-        "unableToResend": "Unable to resend verification email. Please sign up again."
+      "generateVideo": {
+        "title": "Générer une nouvelle vidéo",
+        "description": "Transformez vos images en contenu vidéo dynamique"
       }
     }
-  } 
+  },
+  "imageGeneration": {
+    "title": "Générer une image",
+    "prompt": "Entrez une description",
+    "promptPlaceholder": "Décrivez l'image que vous souhaitez créer...",
+    "generate": "Générer l'image",
+    "uploadImage": "Télécharger une image",
+    "dragDrop": "ou glisser-déposer",
+    "supportedFormats": "PNG, JPG, GIF jusqu'à 10 Mo",
+    "generating": "Génération en cours...",
+    "download": "Télécharger l'image",
+    "share": "Partager l'image",
+    "retry": "Réessayer",
+    "error": {
+      "generation": "La génération de l'image a échoué. Veuillez réessayer.",
+      "upload": "Le téléchargement a échoué. Veuillez réessayer.",
+      "invalidFormat": "Format de fichier invalide. Veuillez utiliser PNG, JPG ou GIF.",
+      "tooLarge": "Fichier trop volumineux. La taille maximale est de 10 Mo."
+    }
+  },
+  "videoGeneration": {
+    "title": "Générer une vidéo",
+    "prompt": "Entrez une description",
+    "promptPlaceholder": "Décrivez la vidéo que vous souhaitez créer...",
+    "image": "Télécharger une image de référence",
+    "uploadImage": "Télécharger une image",
+    "dragAndDrop": "ou glisser-déposer",
+    "imageRequirements": "PNG, JPG jusqu'à 5 Mo",
+    "generate": "Générer la vidéo",
+    "generating": "Génération en cours...",
+    "download": "Télécharger la vidéo",
+    "share": "Partager la vidéo"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "notifications": "Notifications",
+    "autoDownload": "Téléchargement automatique du contenu généré",
+    "twoFactor": "Authentification à deux facteurs",
+    "downloadData": "Télécharger mes données",
+    "privacy": "Paramètres de confidentialité",
+    "language": "Langue",
+    "theme": "Thème",
+    "save": "Enregistrer les modifications"
+  },
+  "landing": {
+    "hero": {
+      "title": {
+        "part1": "Transformez vos idées en",
+        "part2": "Créations magnifiques"
+      },
+      "subtitle": "Créez des images et des vidéos époustouflantes et uniques grâce à la technologie IA avancée. Parfait pour les designers, les créateurs de contenu et tous ceux ayant une vision créative.",
+      "cta": {
+        "primary": "Commencer gratuitement",
+        "secondary": "Explorer le tableau de bord"
+      },
+      "navigation": {
+        "generate": "Commencer à créer",
+        "dashboard": "Voir le tableau de bord"
+      }
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "subtitle": "Créez des images étonnantes en quatre étapes simples",
+      "steps": {
+        "items": {
+          "describe": {
+            "title": "Décrivez votre vision",
+            "description": "Commencez par décrire l'image que vous souhaitez créer en langage naturel"
+          },
+          "generate": {
+            "title": "Génération par IA",
+            "description": "Nos modèles d'IA avancés transforment votre description en images époustouflantes"
+          },
+          "video": {
+            "title": "Créer des vidéos",
+            "description": "Transformez vos images générées en contenu vidéo dynamique"
+          },
+          "download": {
+            "title": "Télécharger & Partager",
+            "description": "Téléchargez vos créations en haute qualité et partagez-les avec le monde"
+          }
+        }
+      }
+    },
+    "features": {
+      "title": "Fonctionnalités puissantes",
+      "subtitle": "Tout ce dont vous avez besoin pour créer du contenu",
+      "description": "Notre plateforme fournit tous les outils nécessaires pour transformer vos idées créatives en réalité",
+      "items": {
+        "imageGeneration": {
+          "title": "Génération d'images par IA",
+          "description": "Transformez du texte en images époustouflantes et uniques en quelques secondes"
+        },
+        "videoCreation": {
+          "title": "Création de vidéos",
+          "description": "Transformez facilement vos images en contenu vidéo captivant"
+        },
+        "history": {
+          "title": "Historique de création",
+          "description": "Suivez et révisez toutes vos créations à tout moment"
+        },
+        "download": {
+          "title": "Téléchargement facile",
+          "description": "Téléchargez votre contenu généré en haute qualité"
+        },
+        "quality": {
+          "title": "Sortie haute qualité",
+          "description": "Créez des images et des vidéos professionnelles avec des détails et une clarté époustouflants"
+        },
+        "speed": {
+          "title": "Rapide comme l'éclair",
+          "description": "Obtenez vos résultats en secondes grâce à notre pipeline IA optimisé"
+        },
+        "security": {
+          "title": "Plateforme sécurisée",
+          "description": "Sécurité de niveau entreprise garantissant la protection de votre contenu et de vos données"
+        }
+      },
+      "highQuality": {
+        "title": "Sortie haute qualité",
+        "description": "Créez des images et des vidéos professionnelles avec des détails et une clarté époustouflants"
+      },
+      "fast": {
+        "title": "Rapide comme l'éclair",
+        "description": "Obtenez vos résultats en secondes grâce à notre pipeline IA optimisé"
+      },
+      "secure": {
+        "title": "Plateforme sécurisée",
+        "description": "Sécurité de niveau entreprise garantissant la protection de votre contenu et de vos données"
+      },
+      "moreFeatures": "Et plus de fonctionnalités",
+      "tryNow": "Essayer maintenant"
+    },
+    "showcase": {
+      "title": "Ce que vous pouvez créer",
+      "subtitle": "Découvrez les possibilités avec nos outils alimentés par l'IA",
+      "items": {
+        "landscapes": {
+          "title": "Paysages par IA",
+          "description": "Transformez du texte simple en magnifiques images de paysages"
+        },
+        "products": {
+          "title": "Visualisation de produits",
+          "description": "Créez des présentations professionnelles de produits à partir de descriptions"
+        },
+        "videos": {
+          "title": "Histoires vidéo",
+          "description": "Créez du contenu vidéo captivant pour votre marque"
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Ce que disent nos utilisateurs",
+      "subtitle": "Rejoignez des milliers de créatifs satisfaits qui utilisent notre plateforme",
+      "items": {
+        "sarah": {
+          "name": "Sarah Chen",
+          "role": "Artiste numérique",
+          "quote": "Cette plateforme a changé ma façon de travailler créativement. Le contenu généré par l'IA est tout simplement incroyable !"
+        },
+        "michael": {
+          "name": "Michael Rodriguez",
+          "role": "Créateur de contenu",
+          "quote": "La vitesse et la qualité de la génération vidéo m'ont aidé à augmenter considérablement ma production de contenu"
+        },
+        "emily": {
+          "name": "Emily Johnson",
+          "role": "Directrice marketing",
+          "quote": "Un outil inestimable pour nos campagnes marketing. La qualité et la variété du contenu que nous pouvons créer sont exceptionnelles"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Forfaits et tarifs",
+      "subtitle": "Choisissez le plan qui correspond à vos besoins",
+      "plans": {
+        "title": "Choisissez votre plan",
+        "subtitle": "Commencez avec un plan qui vous convient",
+        "items": {
+          "starter": {
+            "name": "Débutant",
+            "price": "19",
+            "features": [
+              "100 générations d'images",
+              "50 générations de vidéos",
+              "Support de base",
+              "Qualité vidéo 720p"
+            ]
+          },
+          "professional": {
+            "name": "Professionnel",
+            "price": "49",
+            "features": [
+              "500 générations d'images",
+              "250 générations de vidéos",
+              "Support prioritaire",
+              "Qualité vidéo 1080p"
+            ],
+            "popular": "Plus populaire"
+          },
+          "enterprise": {
+            "name": "Entreprise",
+            "price": "99",
+            "features": [
+              "Générations illimitées",
+              "Support 24/7",
+              "Qualité vidéo 4K",
+              "Accès API"
+            ]
+          }
+        },
+        "perMonth": "/mois",
+        "getStarted": "Commencer"
+      }
+    },
+    "cta": {
+      "title": "Rejoignez des milliers de créatifs et donnez vie à vos idées",
+      "subtitle": "Commencez votre voyage créatif aujourd'hui",
+      "button": "Commencer maintenant"
+    }
+  },
+  "errors": {
+    "invalidEmail": "Veuillez entrer une adresse e-mail valide",
+    "requiredField": "Ce champ est requis",
+    "passwordLength": "Le mot de passe doit contenir au moins 8 caractères",
+    "passwordMatch": "Les mots de passe ne correspondent pas",
+    "uploadFailed": "Le téléchargement a échoué",
+    "generationFailed": "La génération a échoué",
+    "networkError": "Erreur réseau",
+    "unauthorized": "Veuillez vous connecter pour continuer",
+    "auth": {
+      "nameRequired": "Le nom est requis",
+      "emailRequired": "L'e-mail est requis",
+      "invalidEmail": "Adresse e-mail invalide",
+      "passwordLength": "Le mot de passe doit contenir au moins 8 caractères",
+      "passwordMismatch": "Les mots de passe ne correspondent pas",
+      "emailExists": "Un compte existe déjà avec cet e-mail",
+      "invalidInput": "Entrée invalide",
+      "signupFailed": "L'inscription a échoué. Veuillez réessayer.",
+      "invalidCredentials": "Identifiants invalides. Veuillez utiliser le compte de démonstration pré-rempli pour vous connecter.",
+      "emailNotVerified": "Veuillez vérifier votre e-mail avant de vous connecter",
+      "loginFailed": "La connexion a échoué. Veuillez réessayer."
+    },
+    "verificationErrors": {
+      "invalidToken": "Lien de vérification invalide. Le jeton est manquant ou invalide.",
+      "expired": "Le lien de vérification n'existe pas ou a expiré.",
+      "alreadyVerified": "Cet e-mail a déjà été vérifié. Veuillez vous connecter.",
+      "generic": "La vérification a échoué. Veuillez réessayer ou contacter le support.",
+      "resendLimit": "Veuillez attendre quelques minutes avant de demander un nouvel e-mail de vérification.",
+      "resendFailed": "L'envoi de l'e-mail de vérification a échoué. Veuillez réessayer plus tard.",
+      "unableToResend": "Impossible de renvoyer l'e-mail de vérification. Veuillez vous réinscrire."
+    }
+  },
+  "gallery": {
+    "imageGallery": "Galerie d'images",
+    "videoGallery": "Galerie de vidéos",
+    "noImages": {
+      "title": "Aucune image",
+      "description": "Commencez par créer votre première image."
+    },
+    "noVideos": {
+      "title": "Aucune vidéo",
+      "description": "Commencez par créer votre première vidéo."
+    }
+  },
+  "tokenHistory": {
+    "title": "Historique des jetons",
+    "currentBalance": "Solde actuel",
+    "noHistory": "Aucun historique de transactions disponible",
+    "prompt": "Description",
+    "paymentAmount": "Montant du paiement"
+  },
+  "payment": {
+    "title": "Paiement",
+    "verifying": "Vérification du paiement",
+    "please_wait": "Veuillez patienter pendant que nous vérifions votre paiement...",
+    "success_title": "Paiement réussi !",
+    "success_description": "Votre paiement a été traité avec succès. Les jetons ont été ajoutés à votre compte.",
+    "tokens_updated": "Solde de jetons mis à jour",
+    "continue_to_search": "Continuer vers la recherche",
+    "back_to_search": "Retour à la recherche",
+    "verification_failed": "La vérification du paiement a échoué",
+    "error": {
+      "no_session": "Aucune session de paiement trouvée",
+      "generic": "Une erreur s'est produite lors du traitement de votre paiement",
+      "already_processed": "Ce paiement a déjà été traité"
+    }
+  },
+  "navigation": {
+    "generate": "Générer",
+    "dashboard": "Tableau de bord",
+    "gallery": "Galerie",
+    "settings": "Paramètres"
+  }
+} 

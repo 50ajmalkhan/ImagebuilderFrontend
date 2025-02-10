@@ -1,293 +1,379 @@
 {
-    "common": {
-      "appName": "VidGen",
-      "loading": "Loading...",
-      "error": "Error",
-      "success": "Success",
-      "returnToLogin": "Return to Login",
-      "returnToLanding": "Return to Home",
-      "sending": "Sending...",
-      "verifying": "Verifying...",
-      "redirectingToLanding": "Redirecting to home page in a few seconds...",
-      "languages": {
-        "en": "English",
-        "es": "Español",
-        "fr": "Français",
-        "de": "Deutsch",
-        "it": "Italiano",
-        "zh": "中文",
-        "ja": "日本語",
-        "ar": "العربية"
-      }
+  "common": {
+    "appName": "VidGen",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "returnToLogin": "ログインに戻る",
+    "returnToLanding": "トップページに戻る",
+    "sending": "送信中...",
+    "verifying": "確認中...",
+    "redirectingToLanding": "トップページにリダイレクト中...",
+    "languages": {
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "zh": "中文",
+      "ja": "日本語",
+      "ar": "العربية"
     },
-    "auth": {
-      "login": "Login",
-      "signup": "Sign Up",
-      "logout": "Logout",
-      "email": "Email",
-      "password": "Password",
-      "name": "Full Name",
-      "forgotPassword": "Forgot Password?",
-      "noAccount": "Don't have an account?",
-      "haveAccount": "Already have an account?",
-      "signIn": "Sign In",
-      "getStarted": "Get Started",
-      "createAccount": "Create Account",
-      "confirmPassword": "Confirm Password",
-      "verifyEmail": "Verify your email address",
-      "verifyEmailSent": "We've sent a verification link to",
-      "verifyEmailInstructions": {
-        "check": "Please check your email and click the verification link",
-        "expiry": "The link will expire in 24 hours",
-        "spam": "Make sure to check your spam folder if you don't see the email"
-      },
-      "verifyingEmail": "Verifying Your Email",
-      "verifyingEmailWait": "Please wait while we verify your email address...",
-      "verificationSuccess": "Email Verified Successfully!",
-      "verificationFailed": "Verification Failed",
-      "resendVerification": "Resend Verification Email",
-      "redirectingToLogin": "Redirecting to login page in a few seconds...",
-      "redirectingToDashboard": "Email verified successfully! Redirecting to dashboard...",
-      "exitAiStudio": "Exit AI Studio",
-      "welcomeBack": "Welcome Back",
-      "signInToContinue": "Sign in to continue to AI Creator Studio",
-      "signUp": "Sign Up",
-      "signUpNow": "Sign Up Now",
-      "createYourAccount": "Create Your Account",
-      "alreadyHaveAccount": "Already have an account?"
+    "purchaseTokens": "トークンを購入",
+    "returnToHome": "ホームに戻る"
+  },
+  "auth": {
+    "login": "ログイン",
+    "signup": "新規登録",
+    "logout": "ログアウト",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "name": "名前",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "noAccount": "アカウントをお持ちでない方",
+    "haveAccount": "すでにアカウントをお持ちの方",
+    "signIn": "ログイン",
+    "getStarted": "始める",
+    "createAccount": "アカウント作成",
+    "confirmPassword": "パスワード確認",
+    "verifyEmail": "メールアドレスを確認",
+    "verifyEmailSent": "確認リンクを送信しました：",
+    "verifyEmailInstructions": {
+      "check": "確認リンクをメールでご確認ください",
+      "expiry": "リンクは24時間で期限切れとなります",
+      "spam": "迷惑メールフォルダもご確認ください"
     },
-    "dashboard": {
-      "title": "Dashboard",
-      "menu": {
-        "home": "Dashboard",
-        "imageGallery": "Image Gallery",
-        "videoGallery": "Video Gallery"
-      },
-      "recentImages": "Recent Images",
-      "recentVideos": "Recent Videos",
-      "viewAll": "View all",
-      "quickActions": {
-        "title": "Quick Actions",
-        "generateImage": {
-          "title": "Generate New Image",
-          "description": "Create AI-powered images from text descriptions"
-        },
-        "generateVideo": {
-          "title": "Generate New Video",
-          "description": "Create AI-powered videos from images and text"
-        }
-      }
+    "verifyingEmail": "メールアドレスを確認中...",
+    "verifyingEmailWait": "メールアドレスの確認をお待ちください",
+    "verificationSuccess": "メールアドレスの確認が完了しました！",
+    "verificationFailed": "メールアドレスの確認に失敗しました",
+    "resendVerification": "確認リンクを再送信",
+    "redirectingToLogin": "ログインページにリダイレクト中...",
+    "redirectingToDashboard": "ダッシュボードにリダイレクト中...",
+    "exitAiStudio": "AIスタジオを終了",
+    "welcomeBack": "おかえりなさい",
+    "signInToContinue": "AIスタジオを続けるにはログインしてください",
+    "signUp": "新規登録",
+    "signUpNow": "今すぐ登録",
+    "createYourAccount": "アカウントを作成",
+    "alreadyHaveAccount": "すでにアカウントをお持ちですか？"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "menu": {
+      "home": "ホーム",
+      "generateImage": "画像生成",
+      "generateVideo": "動画生成",
+      "imageGallery": "画像ギャラリー",
+      "videoGallery": "動画ギャラリー",
+      "tokenHistory": "トークン履歴"
     },
-    "imageGeneration": {
-      "title": "Image Generation",
-      "prompt": "Describe the image you want to generate",
-      "promptPlaceholder": "Enter a detailed description of the image you want to create...",
-      "generate": "Generate Image",
-      "uploadImage": "Upload Image",
-      "dragDrop": "or drag and drop",
-      "supportedFormats": "PNG, JPG, GIF up to 10MB",
-      "generating": "Generating your image...",
-      "download": "Download Image",
-      "share": "Share Image",
-      "retry": "Try Again",
-      "error": {
-        "generation": "Failed to generate image. Please try again.",
-        "upload": "Failed to upload image. Please try again.",
-        "invalidFormat": "Invalid file format. Please use PNG, JPG, or GIF.",
-        "tooLarge": "File is too large. Maximum size is 10MB."
-      }
-    },
-    "videoGeneration": {
-      "title": "Video Generation",
-      "prompt": "Enter your prompt for video",
-      "generate": "Generate Video",
-      "uploadReference": "Upload Reference Image",
-      "generating": "Generating your video...",
-      "download": "Download Video",
-      "share": "Share Video"
-    },
-    "settings": {
-      "title": "Settings",
-      "notifications": "Email Notifications",
-      "autoDownload": "Auto-download Generated Content",
-      "twoFactor": "Two-Factor Authentication",
-      "downloadData": "Download My Data",
-      "privacy": "Privacy Settings",
-      "language": "Language",
-      "theme": "Theme"
-    },
-    "landing": {
-      "hero": {
-        "title": {
-          "part1": "Transform Your Ideas into",
-          "part2": "Beautiful Creations"
-        },
-        "subtitle": "Create stunning, unique images and videos using advanced AI technology. Perfect for designers, content creators, and anyone with a creative vision.",
-        "cta": {
-          "primary": "Get Started Free",
-          "secondary": "Sign In"
-        }
+    "recentImages": "最近の画像",
+    "recentVideos": "最近の動画",
+    "viewAll": "すべて表示",
+    "quickActions": {
+      "title": "クイックアクション",
+      "generateImage": {
+        "title": "新規画像生成",
+        "description": "テキストの説明からAIで画像を生成"
       },
-      "features": {
-        "title": "Features",
-        "subtitle": "Everything You Need for Content Creation",
-        "description": "Our platform provides all the tools you need to bring your creative ideas to life.",
-        "items": {
-          "imageGeneration": {
-            "title": "AI Image Generation",
-            "description": "Transform text descriptions into stunning, unique images in seconds"
-          },
-          "videoCreation": {
-            "title": "Video Creation",
-            "description": "Convert your images into engaging video content effortlessly"
-          },
-          "styles": {
-            "title": "Multiple Styles",
-            "description": "Choose from various artistic styles to match your creative vision"
-          },
-          "speed": {
-            "title": "Lightning Fast",
-            "description": "Get your generated content in seconds, not minutes"
-          },
-          "security": {
-            "title": "Secure Platform",
-            "description": "Your content and data are protected with enterprise-grade security"
-          },
-          "availability": {
-            "title": "24/7 Generation",
-            "description": "Create content whenever inspiration strikes, day or night"
-          },
-          "history": {
-            "title": "Generation History",
-            "description": "Keep track of all your creations and revisit them anytime"
-          },
-          "download": {
-            "title": "Easy Downloads",
-            "description": "Download your generated content in high resolution formats"
-          }
-        }
-      },
-      "showcase": {
-        "title": "Showcase",
-        "items": {
-          "landscapes": {
-            "title": "AI-Generated Landscapes",
-            "description": "Transform simple text into breathtaking landscape imagery"
-          },
-          "products": {
-            "title": "Product Visualization",
-            "description": "Create professional product renders from descriptions"
-          },
-          "videos": {
-            "title": "Video Stories",
-            "description": "Generate engaging video content for your brand"
-          }
-        }
-      },
-      "testimonials": {
-        "title": "What Our Users Say",
-        "subtitle": "Join thousands of satisfied creators who use VidGen every day",
-        "items": {
-          "artist": {
-            "name": "Sarah Johnson",
-            "role": "Digital Artist",
-            "comment": "VidGen has revolutionized my creative workflow. The AI-generated images are incredibly detailed and save me hours of work."
-          },
-          "marketer": {
-            "name": "Michael Chen",
-            "role": "Marketing Director",
-            "comment": "The video generation feature is a game-changer for our social media content. We can create professional videos in minutes."
-          },
-          "creator": {
-            "name": "Emma Davis",
-            "role": "Content Creator",
-            "comment": "I love how easy it is to experiment with different styles. The platform has helped me find my unique artistic voice."
-          }
-        }
-      },
-      "pricing": {
-        "title": "Simple, Transparent Pricing",
-        "subtitle": "Choose the plan that's right for you",
-        "popular": "Popular",
-        "plans": {
-          "starter": {
-            "name": "Starter",
-            "price": "Free",
-            "features": [
-              "100 AI Image Generations/month",
-              "5 Video Generations/month",
-              "Basic Styles",
-              "Community Support"
-            ],
-            "cta": "Get Started"
-          },
-          "pro": {
-            "name": "Pro",
-            "price": "$29/month",
-            "features": [
-              "1000 AI Image Generations/month",
-              "50 Video Generations/month",
-              "All Styles & Effects",
-              "Priority Support",
-              "API Access",
-              "No Watermark"
-            ],
-            "cta": "Start Pro Trial"
-          },
-          "enterprise": {
-            "name": "Enterprise",
-            "price": "Custom",
-            "features": [
-              "Unlimited Generations",
-              "Custom Style Training",
-              "Dedicated Support",
-              "SLA Guarantee",
-              "Team Management",
-              "Custom Integration"
-            ],
-            "cta": "Contact Sales"
-          }
-        }
-      },
-      "cta": {
-        "title": {
-          "part1": "Ready to Transform Your Creative Process?",
-          "part2": "Start your free trial today."
-        },
-        "subtitle": "Join thousands of creators who are already using our platform to bring their ideas to life.",
-        "button": "Get Started Free"
-      }
-    },
-    "errors": {
-      "invalidEmail": "Please enter a valid email",
-      "requiredField": "This field is required",
-      "passwordLength": "Password must be at least 8 characters",
-      "passwordMatch": "Passwords do not match",
-      "uploadFailed": "Upload failed",
-      "generationFailed": "Generation failed",
-      "networkError": "Network error",
-      "unauthorized": "Please login to continue",
-      "auth": {
-        "nameRequired": "Name is required",
-        "emailRequired": "Email is required",
-        "invalidEmail": "Invalid email address",
-        "passwordLength": "Password must be at least 8 characters long",
-        "passwordMismatch": "Passwords do not match",
-        "emailExists": "An account with this email already exists",
-        "invalidInput": "Invalid input data",
-        "signupFailed": "Failed to create account. Please try again.",
-        "invalidCredentials": "Invalid credentials. Use the pre-filled demo account to login.",
-        "emailNotVerified": "Please verify your email before logging in",
-        "loginFailed": "Failed to login. Please try again."
-      },
-      "verificationErrors": {
-        "invalidToken": "Invalid verification link. The token is missing or malformed.",
-        "expired": "Verification link not found or has expired.",
-        "alreadyVerified": "This email has already been verified. Please login.",
-        "generic": "Verification failed. Please try again or contact support.",
-        "resendLimit": "Please wait a few minutes before requesting another verification email.",
-        "resendFailed": "Failed to resend verification email. Please try again later.",
-        "unableToResend": "Unable to resend verification email. Please sign up again."
+      "generateVideo": {
+        "title": "新規動画生成",
+        "description": "画像をダイナミックな動画コンテンツに変換"
       }
     }
-  } 
+  },
+  "imageGeneration": {
+    "title": "画像生成",
+    "prompt": "説明を入力",
+    "promptPlaceholder": "生成したい画像を説明してください...",
+    "generate": "画像を生成",
+    "uploadImage": "画像をアップロード",
+    "dragDrop": "またはドラッグ＆ドロップ",
+    "supportedFormats": "PNG、JPG、GIF（最大10MB）",
+    "generating": "生成中...",
+    "download": "画像をダウンロード",
+    "share": "画像を共有",
+    "retry": "再試行",
+    "error": {
+      "generation": "画像の生成に失敗しました。もう一度お試しください。",
+      "upload": "アップロードに失敗しました。もう一度お試しください。",
+      "invalidFormat": "無効なファイル形式です。PNG、JPG、GIFをご使用ください。",
+      "tooLarge": "ファイルサイズが大きすぎます。最大10MBまでです。"
+    }
+  },
+  "videoGeneration": {
+    "title": "動画生成",
+    "prompt": "説明を入力",
+    "promptPlaceholder": "生成したい動画を説明してください...",
+    "image": "参照画像をアップロード",
+    "uploadImage": "画像をアップロード",
+    "dragAndDrop": "またはドラッグ＆ドロップ",
+    "imageRequirements": "PNG、JPG（最大5MB）",
+    "generate": "動画を生成",
+    "generating": "生成中...",
+    "download": "動画をダウンロード",
+    "share": "動画を共有"
+  },
+  "settings": {
+    "title": "設定",
+    "notifications": "通知",
+    "autoDownload": "生成コンテンツの自動ダウンロード",
+    "twoFactor": "二要素認証",
+    "downloadData": "データをダウンロード",
+    "privacy": "プライバシー設定",
+    "language": "言語",
+    "theme": "テーマ",
+    "save": "変更を保存"
+  },
+  "landing": {
+    "hero": {
+      "title": {
+        "part1": "アイデアを",
+        "part2": "美しい創作物に"
+      },
+      "subtitle": "高度なAI技術で驚くべき独自の画像と動画を作成。デザイナー、コンテンツクリエイター、クリエイティブなビジョンを持つすべての人に最適です。",
+      "cta": {
+        "primary": "無料で始める",
+        "secondary": "ダッシュボードを探索"
+      },
+      "navigation": {
+        "generate": "作成を開始",
+        "dashboard": "ダッシュボードを表示"
+      }
+    },
+    "howItWorks": {
+      "title": "使い方",
+      "subtitle": "4つの簡単なステップで素晴らしい画像を作成",
+      "steps": {
+        "items": {
+          "describe": {
+            "title": "ビジョンを説明",
+            "description": "自然な言葉で作成したい画像を説明することから始めます"
+          },
+          "generate": {
+            "title": "AI生成",
+            "description": "高度なAIモデルがあなたの説明を素晴らしい画像に変換します"
+          },
+          "video": {
+            "title": "動画作成",
+            "description": "生成された画像をダイナミックな動画コンテンツに変換"
+          },
+          "download": {
+            "title": "ダウンロードと共有",
+            "description": "高品質な作品をダウンロードして世界と共有"
+          }
+        }
+      }
+    },
+    "features": {
+      "title": "パワフルな機能",
+      "subtitle": "コンテンツ作成に必要なすべて",
+      "description": "プラットフォームはクリエイティブなアイデアを実現するために必要なすべてのツールを提供します",
+      "items": {
+        "imageGeneration": {
+          "title": "AI画像生成",
+          "description": "テキストを数秒で素晴らしい独自の画像に変換"
+        },
+        "videoCreation": {
+          "title": "動画作成",
+          "description": "画像を魅力的な動画コンテンツに簡単に変換"
+        },
+        "history": {
+          "title": "作成履歴",
+          "description": "すべての作品を追跡し、いつでも確認可能"
+        },
+        "download": {
+          "title": "簡単ダウンロード",
+          "description": "生成されたコンテンツを高品質でダウンロード"
+        },
+        "quality": {
+          "title": "高品質な出力",
+          "description": "驚くべき詳細と明瞭さでプロフェッショナルな画像と動画を作成"
+        },
+        "speed": {
+          "title": "超高速",
+          "description": "最適化されたAIパイプラインで数秒で結果を取得"
+        },
+        "security": {
+          "title": "安全なプラットフォーム",
+          "description": "エンタープライズレベルのセキュリティでコンテンツとデータを保護"
+        }
+      },
+      "highQuality": {
+        "title": "高品質な出力",
+        "description": "驚くべき詳細と明瞭さでプロフェッショナルな画像と動画を作成"
+      },
+      "fast": {
+        "title": "超高速",
+        "description": "最適化されたAIパイプラインで数秒で結果を取得"
+      },
+      "secure": {
+        "title": "安全なプラットフォーム",
+        "description": "エンタープライズレベルのセキュリティでコンテンツとデータを保護"
+      },
+      "moreFeatures": "その他の機能",
+      "tryNow": "今すぐ試す"
+    },
+    "showcase": {
+      "title": "作成可能なもの",
+      "subtitle": "AIパワードツールで可能性を発見",
+      "items": {
+        "landscapes": {
+          "title": "AIランドスケープ",
+          "description": "シンプルなテキストを美しい風景画像に変換"
+        },
+        "products": {
+          "title": "製品ビジュアライゼーション",
+          "description": "説明からプロフェッショナルな製品プレゼンテーションを作成"
+        },
+        "videos": {
+          "title": "ビデオストーリー",
+          "description": "ブランドのための魅力的な動画コンテンツを作成"
+        }
+      }
+    },
+    "testimonials": {
+      "title": "ユーザーの声",
+      "subtitle": "プラットフォームを利用する数千人の満足したクリエイターに参加",
+      "items": {
+        "sarah": {
+          "name": "サラ・チェン",
+          "role": "デジタルアーティスト",
+          "quote": "このプラットフォームは私のクリエイティブな作業方法を変えました。AI生成コンテンツは本当に驚くべきものです！"
+        },
+        "michael": {
+          "name": "マイケル・ロドリゲス",
+          "role": "コンテンツクリエイター",
+          "quote": "動画生成の速度と品質のおかげで、コンテンツ制作を大幅に増やすことができました"
+        },
+        "emily": {
+          "name": "エミリー・ジョンソン",
+          "role": "マーケティングディレクター",
+          "quote": "マーケティングキャンペーンに欠かせないツールです。作成できるコンテンツの品質と多様性は卓越しています"
+        }
+      }
+    },
+    "pricing": {
+      "title": "プランと料金",
+      "subtitle": "ニーズに合ったプランを選択",
+      "plans": {
+        "title": "プランを選択",
+        "subtitle": "あなたに合ったプランで始める",
+        "items": {
+          "starter": {
+            "name": "スターター",
+            "price": "19",
+            "features": [
+              "画像生成100回",
+              "動画生成50回",
+              "基本サポート",
+              "720p動画品質"
+            ]
+          },
+          "professional": {
+            "name": "プロフェッショナル",
+            "price": "49",
+            "features": [
+              "画像生成500回",
+              "動画生成250回",
+              "優先サポート",
+              "1080p動画品質"
+            ],
+            "popular": "人気"
+          },
+          "enterprise": {
+            "name": "エンタープライズ",
+            "price": "99",
+            "features": [
+              "無制限の生成",
+              "24/7サポート",
+              "4K動画品質",
+              "APIアクセス"
+            ]
+          }
+        },
+        "perMonth": "/月",
+        "getStarted": "始める"
+      }
+    },
+    "cta": {
+      "title": "数千人のクリエイターに参加してアイデアを実現",
+      "subtitle": "今日からクリエイティブな旅を始めましょう",
+      "button": "今すぐ始める"
+    }
+  },
+  "errors": {
+    "invalidEmail": "有効なメールアドレスを入力してください",
+    "requiredField": "このフィールドは必須です",
+    "passwordLength": "パスワードは8文字以上である必要があります",
+    "passwordMatch": "パスワードが一致しません",
+    "uploadFailed": "アップロードに失敗しました",
+    "generationFailed": "生成に失敗しました",
+    "networkError": "ネットワークエラー",
+    "unauthorized": "続行するにはログインしてください",
+    "auth": {
+      "nameRequired": "名前は必須です",
+      "emailRequired": "メールアドレスは必須です",
+      "invalidEmail": "無効なメールアドレスです",
+      "passwordLength": "パスワードは8文字以上である必要があります",
+      "passwordMismatch": "パスワードが一致しません",
+      "emailExists": "このメールアドレスのアカウントは既に存在します",
+      "invalidInput": "無効な入力です",
+      "signupFailed": "登録に失敗しました。もう一度お試しください。",
+      "invalidCredentials": "無効な認証情報です。ログインにはプリロードされたデモアカウントをご使用ください。",
+      "emailNotVerified": "ログインの前にメールアドレスを確認してください",
+      "loginFailed": "ログインに失敗しました。もう一度お試しください。"
+    },
+    "verificationErrors": {
+      "invalidToken": "無効な確認リンクです。トークンが見つからないか無効です。",
+      "expired": "確認リンクが存在しないか期限切れです。",
+      "alreadyVerified": "このメールアドレスは既に確認済みです。ログインしてください。",
+      "generic": "確認に失敗しました。もう一度お試しいただくかサポートにお問い合わせください。",
+      "resendLimit": "別の確認メールをリクエストする前に数分お待ちください。",
+      "resendFailed": "確認メールの再送信に失敗しました。後でもう一度お試しください。",
+      "unableToResend": "確認メールを再送信できません。もう一度登録してください。"
+    }
+  },
+  "gallery": {
+    "imageGallery": "画像ギャラリー",
+    "videoGallery": "動画ギャラリー",
+    "noImages": {
+      "title": "画像がありません",
+      "description": "最初の画像を作成してみましょう。"
+    },
+    "noVideos": {
+      "title": "動画がありません",
+      "description": "最初の動画を作成してみましょう。"
+    }
+  },
+  "tokenHistory": {
+    "title": "トークン履歴",
+    "currentBalance": "現在の残高",
+    "noHistory": "利用可能な取引履歴がありません",
+    "prompt": "説明",
+    "paymentAmount": "支払い金額"
+  },
+  "payment": {
+    "title": "支払い",
+    "verifying": "支払いを確認中",
+    "please_wait": "支払いの確認をお待ちください...",
+    "success_title": "支払い成功！",
+    "success_description": "支払いが正常に処理されました。トークンがアカウントに追加されました。",
+    "tokens_updated": "トークン残高が更新されました",
+    "continue_to_search": "検索に進む",
+    "back_to_search": "検索に戻る",
+    "verification_failed": "支払いの確認に失敗しました",
+    "error": {
+      "no_session": "支払いセッションが見つかりません",
+      "generic": "支払いの処理中にエラーが発生しました",
+      "already_processed": "この支払いは既に処理されています"
+    }
+  },
+  "navigation": {
+    "generate": "生成",
+    "dashboard": "ダッシュボード",
+    "gallery": "ギャラリー",
+    "settings": "設定"
+  }
+} 
